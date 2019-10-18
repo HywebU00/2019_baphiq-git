@@ -23,6 +23,14 @@ select::-ms-expand {
         overflow: hidden;
         padding: .5em 0;
 
+        &:last-child{
+            border-bottom: 0;
+        }
+
+        table{
+            margin: .75em 0;
+        }
+
         &.form_block{
             width: 100%;
             .form_title,
@@ -56,8 +64,6 @@ select::-ms-expand {
         }
     }
 
-    // .form_grp:last-child{ border-bottom: 1px solid red; }
-
     .form_title {
         @include make-xs-column(12);
         @include make-sm-column(3);
@@ -77,8 +83,8 @@ select::-ms-expand {
         // 選擇用藥
         section.Box{
             padding-top: 1.125em;
-            margin-bottom: 1.125em;
-            border-bottom: solid 1px #222;
+            // margin-bottom: 1.125em;
+            // border-bottom: solid 1px #222;
             .form_grp{
                 border-bottom: 0;
                 .form_title{
@@ -109,11 +115,26 @@ select::-ms-expand {
             .inner_Box{
                 background: #f1f1f1;
                 padding: 1em 2em 0;
+
+                .delet_btn{
+                    padding: .3em 1em !important;
+                    margin: -.2em .5em 0 !important;
+                    border: 1px solid #3b3b3b;
+                    @include btn_setting( #545454, #FFF);
+                    &:hover,
+                    &:focus {
+                        @include btn_setting( #222, #FFF);
+                    }
+                }
+                @include screen('mobile') {
+                    .delet_btn{ margin: -.2em .5em 0 0 !important; }
+                }
             }
             .table_info{
+                padding: 0 15px;
                 h4{
                     margin: 0;
-                    line-height: 2;
+                    // line-height: 2;
                 }
                 table{
                     margin-bottom: .5em;
@@ -121,8 +142,29 @@ select::-ms-expand {
                     th{
                         width: 120px;
                         text-align: right;
-                        background: #616b69;
-                        color: #fff;
+                        background: #fff;
+                        color: #222;
+                    }
+                }
+            }
+
+            @include screen('mobile') {
+                .form_grp{
+                    .form_title{
+                        text-align: left;
+                    }
+                    .form_title,
+                    .form_content { @include gutter(0); }
+
+                    &.form_block{
+                        .form_title,
+                        .form_content{ @include gutter(0); }
+                    }
+                }
+                .table_info{
+                    padding: 0;
+                    table{
+                        th{ width: 60px; }
                     }
                 }
             }
@@ -142,10 +184,32 @@ select::-ms-expand {
             text-align: right;
             font-weight: 500;
         }
+        .table_list td{ text-align: center; }
 
         &.form_block{
             .form_title{ text-align: left; }
         }
+    }
+    
+    // 不可選取
+    label.disabled{
+        color: #c1c1c1;
+        input{
+            border-color: #eee;
+            &:hover, &:focus{ border-color: #eee; }
+        }
+    }
+}
+
+.box_result{
+    background: #eee;
+    margin-bottom: .5em;
+    padding: .5em 0;
+    .form_grp{
+        padding: 0;
+    }
+    .form_grp:last-child{
+        border-bottom: 0;
     }
 }
 
@@ -155,7 +219,9 @@ form {
     .check_grp,
     .radio_grp,
     .btn_grp,
-    .upload_grp {
+    .upload_grp,
+    .upload_add_grp,
+    .upload_delet_grp {
         margin-bottom: .2em;
     }
     .check_grp,
@@ -172,7 +238,9 @@ form {
         }
     }
     .form_grp,
-    .upload_grp {
+    .upload_grp,
+    .upload_add_grp,
+    .upload_delet_grp {
         // 文字表單個別行內設定
         &.form_inline {
             label {
@@ -185,7 +253,8 @@ form {
                 width: auto;
             }
         }
-    } // form 全域行內設定
+    }
+    // form 全域行內設定
     &.form_inline {
         label {
             display: inline-block;
@@ -209,7 +278,9 @@ form {
         .check_grp,
         .radio_grp,
         .btn_grp,
-        .upload_grp {
+        .upload_grp,
+        .upload_add_grp,
+        .upload_delet_grp{
             display: inline-block;
             margin-right: .5em;
         }
@@ -303,7 +374,14 @@ input[type="file"],
 input[type="date"]{
     &.W33{ width: 33%; }
     &.half{ width: 50%; }
+
+    @include screen('mobile') {
+        &.W33,
+        &.half{ width: 100%; }
+    }
 }
+
+
 
 .datepick{
     display: inline-block;
@@ -315,6 +393,7 @@ input[type="date"]{
         content:' ~ ';
         position: absolute;
         left: 8px;
+        line-height: 2.6;
     }
 }
 
@@ -416,7 +495,7 @@ input[type="radio"]:checked {
 
 //---------------------------------------------readonly disable -------//
 input[readonly],
-input[disable] {
+input[disabled] {
     background: lighten($color-gray, 15);
     color: darken($color-gray, 10);
     border-color: darken($color-gray, 10);
@@ -435,7 +514,7 @@ input[disable] {
 .upload_grp {
     position: relative;
     input[readonly],
-    input[disable] {
+    input[disabled] {
         background: transparent;
         color: #666;
     }
@@ -451,6 +530,34 @@ input[disable] {
         &:hover,
         &:focus {
             cursor: pointer !important;
+        }
+    }
+}
+
+.upload_add_grp,
+.upload_delet_grp{
+    position: relative;
+    .delet_btn, .add_btn{
+        position: absolute;
+        overflow: hidden;
+        top: 1px;
+        right: 3px;
+        @extend %btn;
+        @include btn_setting(#545454, #FFF);
+        // background: #222 !important;
+        padding: .2em 1em !important;
+        @include border-radius(4px);
+        &:hover,
+        &:focus {
+            cursor: pointer !important;
+        }
+    }
+    .add_btn{
+        @extend %btn;
+        @include btn_setting($color-yellow, #000);
+        &:hover,
+        &:focus {
+            @include btn_setting(darken($color-yellow,10), #000);
         }
     }
 }
@@ -496,7 +603,39 @@ abbr[title] {
 
 
 
+@include screen('mobile') {
+    .form_grid{
+        margin: .5em 0;
+    }
 
+    form {
+        .datepick:nth-child(1){
+            &:after{
+                content:' ~ ';
+                position: absolute;
+                right: -16px;
+                line-height: 2.6;
+            }
+        }
+        .datepick:nth-child(2){
+            padding-left: 0;
+            &:before{ display: none; }
+        }
+    }
+    
+    // 即時資訊欄位
+    .Pour-Info{
+        .form_grp{
+            .form_title{
+                text-align: left;
+                line-height: 2;
+            }
+            .table_list td{ text-align: left; }
+        }
+        
+        .table_list td{ min-height: auto; }
+    }
+}
 
 
 

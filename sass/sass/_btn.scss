@@ -63,6 +63,38 @@ $btn-radius:4px;
     }
 }
 
+// table中的小按鈕
+.TB-btn{
+    background: $secondaryColor;
+    color: #fff;
+    border-radius: 4px;
+    padding: .25em 1em;
+    &:hover,
+    &:focus {
+        background: $primaryColor;
+    }
+
+    &.upload{
+        // background: #222;
+    }
+    &.edit{
+        // background: #222;
+    }
+    &.cancel{
+        // background: #222;
+    }
+    &.view{
+        // background: #222;
+    }
+}
+
+.add{
+    @extend %btn;
+    @include btn_setting($form-focus, #FFF);
+}
+
+.alineR{float: right;}
+
 //按鈕顏色
 //@include btn_setting(按鈕顏色,字的顏色);
 .btn-green {
