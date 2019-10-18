@@ -1,0 +1,59 @@
+// 此變數為框架之整體變數，控制整體網站之設定，包含 顏色、文字、格線系統
+// 於mixins 資料夾內，各個模組也有其個別使用的變數，請至個別檔案設定，個別使用變數不含在此設定
+
+//-------------------------------------------------------------顏色---------//
+// 定義顏色 此顏色可自由變換
+$primaryColor:				#01923b;				//主色 
+$secondaryColor:			#1e2975; 				//輔色
+$lightColor:				#FCC211;				//點綴
+$linkColor:					#01923b;				//連結
+$importantColor:			#FF3E4D;				//重要
+// 但注意真實顏色與語意的關聯必須易於辨識
+
+$color-blue: 				#21BAFF;
+$color-green:				#5CB85C;
+$color-orange: 				#F77810;
+$color-red: 				#FF3E4D;
+$color-yellow: 				#FCC211;
+$color-purple: 				#AA5AC5;
+$color-gray: 				#CCC;
+$color-dark: 				#333;
+$color-hr:					#666;		  			 //hr顏色
+$color-word:				#222;                    //一般字的顏色
+// 連結顏色
+$aColor:					darken(#01923b, 5);
+$aHover:					lighten($aColor,10);
+
+// 表單focus顏色
+$form-focus:				#01923b;				//表單
+//-------------------------------------------------------------字型--------//
+
+// 字型設定
+$font-family:               Lato, "PingFang TC", "Helvetica Neue", Helvetica, 微軟正黑體, Arial, sans-serif;
+$font-size:					1.125em;
+
+//-------------------------------------------------------------格線系統-----//
+
+// 格線系統
+$grid-columns:              12 !default;			   //格線欄位數
+$grid-gutter-width:         30px !default;			   //左右padding
+$container-max:             1200px !default;		   //container最大寬
+
+//mediaquery
+$screen-lg:        			1400px !default;  	       //電腦
+$screen-md:        			992px  !default;      	   //平板
+$screen-sm:        			768px  !default;     	   //手機
+$screen-xs:        			576px  !default;      	   //極小尺寸
+
+//-------------------------------------------------------------客製化------//
+
+$rounded-angle:             10px;					   //整站導角
+$fatfooter-length:			6;						   //fatfooter選單一行個數
+
+
+
+
+
+
+
+

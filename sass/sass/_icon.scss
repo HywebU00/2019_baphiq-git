@@ -1,0 +1,155 @@
+[class^="i_"] {
+    &:before {
+        content: "";
+        display: inline-block;
+        height: 1em;
+        width: 1em; // margin: -0.4em 0em;
+        vertical-align: middle;
+        speak: none;
+    }
+}
+
+@mixin hyui_icon($icon_img) {
+    &:before {
+        background-image: url(../images/icon/#{$icon_img}.svg);
+        background-size: cover;
+        margin-top: -0.1em;
+        margin-bottom: .1em;
+    }
+}
+// 反轉
+.i_invert {
+    &:before {
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+    }
+}
+
+.i_apple {
+    @include hyui_icon('icon_apple');
+}
+.i_arrow_left {
+    @include hyui_icon('icon_arrow_left');
+}
+.i_arrow_right {
+    @include hyui_icon('icon_arrow_right');
+}
+.i_bookmark {
+    @include hyui_icon('icon_bookmark');
+}
+.i_chat {
+    @include hyui_icon('icon_chat');
+}
+.i_check {
+    @include hyui_icon('icon_check');
+}
+.i_clock {
+    @include hyui_icon('icon_clock');
+}
+.i_close {
+    @include hyui_icon('icon_close');
+}
+.i_edit {
+    @include hyui_icon('icon_edit');
+}
+.i_facebook {
+    @include hyui_icon('icon_facebook');
+}
+.i_googleplus {
+    @include hyui_icon('icon_googleplus');
+}
+.i_grid {
+    @include hyui_icon('icon_grid');
+}
+.i_heart {
+    @include hyui_icon('icon_heart');
+}
+.i_home {
+    @include hyui_icon('icon_home');
+}
+.i_info {
+    @include hyui_icon('icon_info');
+}
+.i_link {
+    @include hyui_icon('icon_link');
+}
+.i_linkedin {
+    @include hyui_icon('icon_linkedin');
+}
+.i_lock {
+    @include hyui_icon('icon_lock');
+}
+.i_mail {
+    @include hyui_icon('icon_mail');
+}
+.i_rss {
+    @include hyui_icon('icon_rss');
+}
+.i_setting {
+    @include hyui_icon('icon_setting');
+}
+.i_star {
+    @include hyui_icon('icon_star');
+}
+.i_twitter {
+    @include hyui_icon('icon_twitter');
+}
+.i_video {
+    @include hyui_icon('icon_video');
+}
+.i_vimeo {
+    @include hyui_icon('icon_vimeo');
+}
+.i_youtube {
+    @include hyui_icon('icon_youtube');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

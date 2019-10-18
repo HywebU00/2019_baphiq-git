@@ -1,0 +1,87 @@
+//https://isabelcastillo.com/error-info-messages-css
+*[class^="notice"] {
+    padding: .4em 2em .4em 2em;
+    display: block;
+    font-size: .938em;
+    margin: .2em 0;
+    position:relative;
+    color: #666;
+    background-color: #f2f2f2;;
+    vertical-align: middle;
+    position:relative;
+    border-left: .5em solid #f2f2f2;
+    @include box-sizing(border-box);
+    @include border-radius(4px);
+    &:before{
+    	position:absolute;
+    	top:.7em;
+    	left:.5em;
+    	display:block;
+    	vertical-align: middle;
+    	width: 15px;
+    	height: 15px;
+    	content:"";
+    	img{
+    		width:100%;
+    	}
+    }
+    a.close{
+    	position:absolute;
+    	width: 12px;
+    	height: 12px;
+    	top: 20px;
+    	right: 1em;
+    	@include opacity(.75);
+    	&:hover,&:focus{
+    		@include opacity(1);
+    	}
+    	img{
+    		width: 12px;
+    		height: 12px;
+    	}
+    }
+}
+
+*[class*="notice_info"] {
+	border:none;
+    color: #00529B;
+    background-color: #BDE5F8;
+    border-left: .5em solid #BDE5F8;
+    &:before{
+    	background:url(../images/basic/icon_info.svg) no-repeat center center;
+    	background-size:15px;
+    }
+}
+
+*[class*="notice_success"] {
+	border:none;
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    border-left: .5em solid #DFF2BF;
+    &:before{
+    	background:url(../images/basic/icon_success.svg) no-repeat center center;
+    	background-size:15px;
+    }
+}
+
+*[class*="notice_warning"] {
+	border:none;
+    color: #CE5605;
+    background-color: #FEEFB3;
+    border-left: .5em solid #FEEFB3;;
+    &:before{
+    	background:url(../images/basic/icon_warning.svg) no-repeat center center;
+    	background-size:18px;
+    }
+}
+
+*[class*="notice_error"] {
+	border:none;
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border-left: .5em solid #FFD2D2;
+    &:before{
+    	background:url(../images/basic/icon_error.svg) no-repeat center center;
+    	background-size:15px;
+    }
+}

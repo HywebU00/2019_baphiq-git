@@ -1,0 +1,169 @@
+$fatBgColor: #fff; //fatFooter 底色
+$fatTextColor: #FFF; //fatFooter 連結顏色
+.fatfooter {
+    @include clearfix;
+    @include make-fatfooter($fatfooter-length, 100%);
+    @include screen('mobile') {
+        display: none;
+    }
+}
+.fatfooter {
+    @include clearfix;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 1em;
+    margin: 0 auto;
+    background: $fatBgColor;
+    .container {
+        position: relative;
+        overflow: hidden;
+        @include box-sizing();
+        @include gutter();
+    }
+    // 按鈕
+    .btn-fatfooter {
+        font-size: .813em;
+        cursor: pointer;
+        display: block;
+        min-width: 3em;
+        height: 3em;
+        line-height: 3em;
+        color: #000;
+        border: none;
+        background: rgba(#000, .5);
+        position: absolute;
+        left: 50%;
+        top: 6px;
+        margin-left: -3em;
+        z-index: 990;
+        text-indent: -9999px;
+        box-shadow: none;
+        padding: 1em 1em !important;
+        @include border-radius(50%);
+        &:before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #fff;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(-45deg);
+            transform-origin: center center;
+            left: 50%;
+            top: 1.2em;
+            margin-left: -6px;
+            transition: .3s ease-out;
+        }
+        &:hover,
+        &:focus {
+            // background: darken($aHover, 10);
+            // color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            border: none;
+            background: $lightColor;
+            &:before {
+                transform: rotate(135deg);
+                top: 1.2em;
+            }
+        }
+        &.open {
+            &:before {
+                transform: rotate(135deg);
+                top: 1.2em;
+            }
+            &:hover, &:focus {
+                &:before {
+                    transform: rotate(-45deg);
+                    top: 1.2em;
+                }
+            }
+        }
+    }
+    nav {
+        color: #fff;
+        overflow: hidden;
+        display: block;
+        position: relative;
+        padding: 70px 0 0 1%;
+        @include box-sizing(border-box);
+        ul {
+            @include li-reset;
+            width: 100%;
+            @include screen('mobile') {
+                width: 100%;
+                display: block;
+                margin: 0px auto;
+            }
+            li {
+                display: inline-block; // outline: 1px solid red;
+                text-align: left;
+                vertical-align: top;
+                margin: 0 0 1% 0;
+                line-height: 2.6em; // margin:$fatFooterliMargin;
+                @include box-sizing;
+                @include screen('mobile') {
+                    display: block;
+                }
+                a {
+                    text-align: center;
+                    line-height: 1.65em;
+                    display: block;
+                    font-weight: bold;
+                    padding: 1% 0px 1% 0px;
+                    color: #333;
+                    font-size: 1.125em;
+                    @include box-sizing;
+                    &:hover, &:focus {
+                        box-shadow: none;
+                        background: $primaryColor;
+                        color: #fff;
+                    }
+                }
+                ul {
+                    padding: 0;
+                    margin-top: 5px;
+                    overflow: hidden;
+                    @media (max-width: 767px) {
+                        width: auto;
+                        padding-left: 5%;
+                    }
+                    li {
+                        display: block;
+                        margin: 0;
+                        padding: 5px 0;
+                        border: none;
+                        background: none;
+                        width: 100%;
+                        a {
+                            display: block;
+                            @include aSetting_nocolor;
+                            font-weight: normal;
+                            text-align: center;
+                            text-decoration: none;
+                            font-size: .938em;
+                            font-weight: normal;
+                            line-height: 1.4em;
+                            padding: 3px 4px;
+                            background: none;
+                            @include box-sizing(border-box);
+                            border-bottom: none;
+                            &:hover, &:focus {
+                                background: none;
+                                color: $primaryColor;
+                            }
+                        }
+                    }
+                    //第三層關閉
+                    ul {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

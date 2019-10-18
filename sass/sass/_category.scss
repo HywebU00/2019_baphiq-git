@@ -1,0 +1,34 @@
+.category {
+    text-align: left;
+    @include box-sizing;
+    margin: 2em auto;
+    ul {
+        padding: 0;
+        margin: 0;
+        overflow:hidden;
+        li {
+            margin: 0px 3px 3px 0px;
+            display: block;
+            float: left;
+        }
+    }
+    a {
+        border: solid 1px #555;
+        color: #555 !important;
+        padding: 0 1em;
+        display:block;
+        line-height: 2.2;
+        text-decoration: none !important;
+        @include box-sizing();
+        @include border-radius(4px);
+        &:hover,
+        &:focus {
+            background: #555;
+            color: #fff !important;
+        }
+    }
+    .Now{
+        background: #555;
+        color: #fff !important;
+    }
+}

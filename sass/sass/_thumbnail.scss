@@ -1,0 +1,22 @@
+.thumbnail{
+	@include make-xs-column(12);
+	@include make-sm-column(6);
+	@include make-md-column(4);
+	@include make-lg-column(4);
+	@include gutter();
+	margin-bottom: 15px;
+	a{
+		display:block;
+		@include border-radius(5px);
+		border:1px solid #DDD;
+		padding:.5em;
+		@include aSetting_nocolor;
+	}
+	.imgOuter{
+		@include aspect-ratio(4, 3);   //設定比例ex:4:3 or 16:9
+	}
+	.caption{
+		max-width: 90%;
+		margin: 0px auto;
+	}
+}

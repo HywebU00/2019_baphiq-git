@@ -1,0 +1,503 @@
+//參照雅瓊範例
+@mixin formStyle($f_color:$color-word, $f_border:$color-gray, $f_radius:5px) {
+    color: $f_color;
+    font-size: 1em;
+    border: 1px solid $f_border;
+    padding: .5em .5em;
+    background: #fff;
+    vertical-align: middle;
+    margin-bottom: .3em;
+    @include box-sizing();
+    @include border-radius($f_radius);
+    @include transition(border, .2s, ease-out);
+    @include transition(box-shadow, .2s, ease-out);
+}
+select::-ms-expand {
+    display: none;
+}
+.form_grid {
+    margin: .5em;
+
+    .form_grp {
+        border-bottom: 1px solid #DDD;
+        overflow: hidden;
+        padding: .5em 0;
+
+        &.form_block{
+            width: 100%;
+            .form_title,
+            .form_content {
+                @include make-xs-column(12);
+                @include make-sm-column(12);
+                @include make-md-column(12);
+                @include make-lg-column(12);
+                // @include gutter();
+            }
+
+            .form_title{ padding-top: 5px; }
+
+            .form_grp{
+                .form_title {
+                    @include make-xs-column(12);
+                    @include make-sm-column(3);
+                    @include make-md-column(3);
+                    @include make-lg-column(3);
+                    @include gutter();
+                    padding-top: 5px;
+                }
+                .form_content {
+                    @include make-xs-column(12);
+                    @include make-sm-column(9);
+                    @include make-md-column(9);
+                    @include make-lg-column(9);
+                    @include gutter();
+                }
+            }
+        }
+    }
+
+    // .form_grp:last-child{ border-bottom: 1px solid red; }
+
+    .form_title {
+        @include make-xs-column(12);
+        @include make-sm-column(3);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+        @include gutter();
+        padding-top: 5px;
+        font-weight: 500;
+    }
+    .form_content {
+        @include make-xs-column(12);
+        @include make-sm-column(9);
+        @include make-md-column(9);
+        @include make-lg-column(9);
+        @include gutter();
+
+        // 選擇用藥
+        section.Box{
+            padding-top: 1.125em;
+            margin-bottom: 1.125em;
+            border-bottom: solid 1px #222;
+            .form_grp{
+                border-bottom: 0;
+                .form_title{
+                    text-align: right;
+                    line-height: 2.2;
+                }
+                .form_content{}
+
+                &.form_block{
+                    width: 100%;
+                    .form_title,
+                    .form_content {
+                        @include make-xs-column(12);
+                        @include make-sm-column(12);
+                        @include make-md-column(12);
+                        @include make-lg-column(12);
+                        // @include gutter();
+                        text-align: left;
+                    }
+                }
+
+                &.unique{
+                    border-bottom: 0;
+                }
+            }
+
+            // 農藥/劑型/含量
+            .inner_Box{
+                background: #f1f1f1;
+                padding: 1em 2em 0;
+            }
+            .table_info{
+                h4{
+                    margin: 0;
+                    line-height: 2;
+                }
+                table{
+                    margin-bottom: .5em;
+                    background: #fff;
+                    th{
+                        width: 120px;
+                        text-align: right;
+                        background: #616b69;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 即時資訊欄位
+.Pour-Info{
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    margin: 1em 0;
+    border-radius: 6px;
+
+    .form_grp{
+        .form_title{
+            text-align: right;
+            font-weight: 500;
+        }
+
+        &.form_block{
+            .form_title{ text-align: left; }
+        }
+    }
+}
+
+//---------------------------------------------form setting--------//
+form {
+    .form_grp,
+    .check_grp,
+    .radio_grp,
+    .btn_grp,
+    .upload_grp {
+        margin-bottom: .2em;
+    }
+    .check_grp,
+    .radio_grp {
+        label {
+            display: block;
+        } // radio與check個別行內設定
+        &.form_inline {
+            display: table;
+            label {
+                display: inline-block;
+                margin: .2em .5em 0 0;
+            }
+        }
+    }
+    .form_grp,
+    .upload_grp {
+        // 文字表單個別行內設定
+        &.form_inline {
+            label {
+                display: inline-block;
+                margin-right: .5em;
+            }
+            input,
+            textarea,
+            select {
+                width: auto;
+            }
+        }
+    } // form 全域行內設定
+    &.form_inline {
+        label {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: .5em;
+            &~input,
+            &~textarea {
+                display: inline-block;
+                width: auto;
+                vertical-align: middle;
+            }
+        }
+        input[type="text"],
+        input[type="password"],
+        select,
+        textarea {
+            width: auto;
+            display: inline-block;
+        }
+        .form_grp,
+        .check_grp,
+        .radio_grp,
+        .btn_grp,
+        .upload_grp {
+            display: inline-block;
+            margin-right: .5em;
+        }
+        .check_grp,
+        .radio_grp {}
+
+        .btn_grp {
+            .btn,
+            input[type="submit"],
+            input[type="reset"],
+            input[type="button"],
+            input[type="search"] {
+                margin-top: -3px;
+                padding: .35em 1em;
+            }
+        }
+        select,
+        textarea {
+            width: auto;
+        }
+    }
+    
+//---------------------------------------------下拉選單--------//
+label,
+legend {
+    // white-space: nowrap;
+    display: inline-block;
+    // margin: 0 0 .5em 0;
+    @include screen('xs_mobile') {
+        display: block;
+    }
+
+    &.inline {
+        input,
+        select,
+        textarea {
+            width: auto;
+        }
+    }
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+//---------------------------------------------預設設定--------//
+input,
+textarea,
+select,
+button {
+    @include formStyle(); // 預設載入formStyle設定
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    -webkit-appearance: none; //清除 safari 的預設樣式
+    -moz-appearance: none;
+    appearance: none;
+}
+
+//---------------------------------------------文字輸入表單--------//
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: $color-gray;
+    }
+    &::-moz-placeholder {
+        /* Firefox 19+ */
+        color: $color-gray;
+    }
+    &:-ms-input-placeholder {
+        /* IE 10+ */
+        color: $color-gray;
+    }
+    &:-moz-placeholder {
+        /* Firefox 18- */
+        color: $color-gray;
+    }
+}
+
+// input寬度
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="date"]{
+    &.W33{ width: 33%; }
+    &.half{ width: 50%; }
+}
+
+.datepick{
+    display: inline-block;
+    position: relative;
+}
+.datepick:nth-child(2){
+    padding-left: 30px;
+    &:before{
+        content:' ~ ';
+        position: absolute;
+        left: 8px;
+    }
+}
+
+
+button,
+input[type="button"],
+{
+    @extend %btn;
+    @include btn_setting($form-focus, #FFF);
+}
+
+input[type="submit"] {
+    @extend %btn;
+    @include btn_setting($form-focus, #FFF);
+}
+
+textarea {
+    @include formStyle();
+    height: 5em;
+    overflow-y: scroll;
+    @include screen('xs_mobile') {
+        width: 100%;
+    }
+}
+
+input[type="text"]:focus,
+input[type="reset"]:focus,
+input[type="file"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+    border: 1px solid lighten($form-focus, 20);
+    @include box-shadow(0px 0px 0px 2px lighten($form-focus, 20));
+    outline: none;
+}
+
+//
+input[type="file"] {}
+
+//---------------------------------------------下拉選單--------//
+select {
+    line-height: 2.4em;
+    height: 2.4em;
+    padding: 0 24px 0 .5em;
+    border: 1px solid $color-gray;
+    background: #fff url(../images/basic/icon_select_arrow.svg) no-repeat right center;
+    background-size: 20px;
+    option {
+        outline: none;
+        border: none;
+    }
+    &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+    }
+}
+
+//---------------------------------------------reset--------//
+input[type="reset"] {
+    @extend %btn;
+    @include btn_setting(darken($color-gray, 20), #FFF);
+    text-shadow: none;
+}
+
+//---------------------------------------------checkbox & radio--------//
+input[type="checkbox"],
+input[type="radio"] {
+    font-size: 1em;
+    margin: -4px .2em 0 0;
+    width: 1em;
+    height: 1em;
+    background-color: #f7f6ee;
+    border: 2px solid $color-gray;
+}
+
+input[type="radio"] {
+    border-radius: 50%;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    border-color: $form-focus;
+    background-color: $form-focus;
+    outline: none;
+}
+
+input[type="checkbox"]:checked {
+    background-image: url(../images/basic/icon_checked.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 98%;
+    box-shadow: $form-focus 0 0 0 1px;
+    @include border-radius(2px);
+}
+
+input[type="radio"]:checked {
+    box-shadow: #fff 0 0 0 3px inset, $form-focus 0 0 0 1px;
+}
+
+//---------------------------------------------readonly disable -------//
+input[readonly],
+input[disable] {
+    background: lighten($color-gray, 15);
+    color: darken($color-gray, 10);
+    border-color: darken($color-gray, 10);
+    &~label {
+        color: darken($color-gray, 10);
+    }
+    &:hover,
+    &:focus {
+        border-color: darken($color-gray, 10);
+        box-shadow: none; // cursor: not-allowed;
+    }
+}
+
+// 檔案上傳
+// https://codepen.io/shubhamc_007/pen/oZyodd
+.upload_grp {
+    position: relative;
+    input[readonly],
+    input[disable] {
+        background: transparent;
+        color: #666;
+    }
+    .upload_btn {
+        position: absolute;
+        overflow: hidden;
+        top: 1px;
+        right: 3px;
+        @extend %btn;
+        @include btn_setting($form-focus, #FFF);
+        padding: .2em 1em !important;
+        @include border-radius(4px);
+        &:hover,
+        &:focus {
+            cursor: pointer !important;
+        }
+    }
+}
+
+input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 1.25em;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+}
+
+//---------------------------------------------captcha--------//
+img.captcha {
+    display: inline-block;
+    vertical-align: middle;
+    max-height: 2.4em;
+    margin-bottom: .5em;
+    &+input {
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+    }
+    ~img {
+        display: inline-block;
+        vertical-align: middle;
+        max-height: 2.4em;
+        margin-bottom: .5em;
+    }
+}
+//---------------------------------------------必填欄位說明--------//
+abbr[title] {
+   border-bottom: none;text-decoration: none;
+}
+
+
+
+
+
+
+
+
+

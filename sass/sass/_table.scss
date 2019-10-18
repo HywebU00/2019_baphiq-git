@@ -1,0 +1,110 @@
+//http://lab.25sprout.com/responsive_table/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2em;
+    table{ margin-bottom: 0; }
+    @include screen('xs_mobile') {
+        width: 100%;
+        position: relative;
+    }
+    th,
+    td {
+        padding: .5em;
+        text-align: left;
+    }
+    td {
+        border: #ddd 1px solid;
+        word-break: break-all;
+        a {
+            word-break: break-all;
+        }
+    }
+    th {
+        background-color: #F3F3F3;
+        color: #333;
+        border: #DDD 1px solid;
+        text-align: center;
+        min-width: 90px;
+        // white-space: nowrap;
+    }
+    &.table_hover {
+        tr:hover {
+            background: #F3F3F3;
+        }
+    }
+    &.table_sprite {
+        tr:nth-child(even) {
+            background: #F5F5F5;
+        }
+    }
+}
+
+.table_list {
+    @include screen('mobile') {
+        background-color: transparent !important; //Force table to not be like tables anymore
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        tr {
+            border: 1px solid #ccc;
+            margin-bottom: 10px; // background-color: #333;
+        }
+        td {
+            // Behave  like a "row"
+            border: none !important;
+            border-bottom: 1px solid #eee !important;
+            position: relative;
+            padding-left: 35% !important;
+            white-space: normal;
+            text-align: left;
+            min-height: 46px;
+            &:before {
+                content: attr(data-title);
+                position: absolute;
+                top: .5em;
+                left: .5em;
+                width: 30%;
+                padding-right: 10px;
+                // white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                color: #000;
+            }
+        }
+    }
+}
+
+// 無框線
+table.table_penetrate{
+    td, th{
+        border-left: none;
+        border-right: none;
+    }
+}
+
+// RWD table
+.table_wrapper {
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    width:100%;
+    display:block;
+    overflow:hidden;
+    overflow-x:auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
+    table{
+        width:100%;
+        min-width:545px;
+        td{ white-space: nowrap; }
+    }
+}

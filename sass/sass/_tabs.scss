@@ -1,0 +1,126 @@
+.tabSet {
+    max-width: 100%;
+    margin: 20px auto;
+    overflow: hidden;
+    @include clearfix;
+    @include screen('mobile') {
+        max-width: 100%;
+        width: auto;
+        height: auto !important;
+    }
+}
+
+.tabs {
+    position: relative;
+    @include screen('mobile') {
+        position: relative;
+    }
+    &>.tabItem {
+        &.active>a {
+            background-color: $primaryColor;
+            color: #FFF;
+        }
+        float: left;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+        line-height: 1;
+        font-weight: normal;
+        @include screen('mobile') {
+            float: none;
+            &>a {
+                width: 100% !important;
+                border-bottom: 1px solid #888;
+            }
+            &.active>a {
+                border-color: #bbb;
+            }
+        }
+        &>a {
+            display: block;
+            padding: 16px 0 14px;
+            text-align: center;
+            background-color: #aaa;
+            color: #fff;
+            text-decoration: none;
+            @include text-overflow();
+            @include box-sizing();
+            &:hover {
+                background: $primaryColor;
+            }
+        }
+    }
+}
+
+//多組 可設定差異
+.example-2 {
+    .tabItem>a:hover {
+        background: $secondaryColor;
+    }
+    .tabItem.active>a {
+        background: $secondaryColor;
+    }
+}
+
+// 顯示content
+.active+.tabContent {
+    display: block;
+}
+
+.tabContent {
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    clear: both;
+    padding: 30px 20px;
+    display: none;
+    @include screen('mobile') {
+        position: static;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    li {
+        margin: 0 0 1.3em 0;
+        padding: 0;
+        border-bottom: 1px #CCC dashed;
+         @include screen('mobile') {
+            @include text-overflow();
+        }
+        a{
+            @include aSetting_nocolor;
+        }
+        span {
+            display: inline-block;
+            margin: 0 0 0 1em;
+            font-size: .813em;
+            color: #666;
+        }
+    }
+    .more {
+        text-align: center;
+         @include screen('mobile') {
+            text-align: center;
+        }
+        a {
+            display: inline-block;
+            background: $color-gray;
+            color: #FFF;
+            width: auto;
+            text-align: center;
+            font-size: .813em;
+            padding: .5em 2em;
+            @include border-radius(4px);
+            @include transition(all, .3s, ease-out);
+            &:hover,
+            &:focus {
+                background: darken($color-gray, 10);
+            }
+        }
+    }
+}

@@ -1,0 +1,119 @@
+body {
+    &.noscroll {
+        position: static !important;
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// 最外圍預設為100%
+.wrapper {
+    width: 100%;
+    margin: 0px auto;
+    @include screen('mobile') {
+        background: #FFF;
+    }
+}
+
+// 整體共用container樣式，請注意首頁切版頁面的整齊
+.container {
+    padding: 0;
+    margin: 0 auto;
+    max-width: $container-max; //請看_variable.scss
+}
+
+.main {
+    position: relative;
+    margin: 0 auto;
+    padding: 0; // max-width: $container-max;
+    background: $primaryColor;
+    // 可先設定一個中央區塊最大寬，限制accesskey對齊
+
+    @include screen('mobile') {
+        padding-top: 55px;
+    } // 內頁標題設定
+    h2 {
+        line-height: 1.25em;
+    }
+}
+
+// 內頁共同設定 ----------------------------------
+#Page {
+    background: url('../images/bg-Page.png') center top no-repeat, $primaryColor;
+    background-size: cover;
+    background-attachment: fixed;
+
+    // .header{ background: none; }
+    .header.fixed {
+        background: rgba(7, 46, 78, 0.75);
+        .menu{
+            background: none;
+        }
+    }
+
+    .main{
+        background: none;
+    }
+    // 為了與首頁區隔，請在內頁加上innerpage ClassName
+    .innerpage{
+        padding-top: 2em;
+        padding-bottom: 2em;  
+        >.container{
+            background: #fff;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            min-height: 500px !important;
+            @include gutter(90px);
+        }
+        // 顯示條件查詢
+        .advance_search{
+            position: absolute;
+            right: 45px;
+            top: 65px;
+            button{
+                @include border-radius(8px);
+                background: #222;
+                color: #fff;
+                padding: .35em .75em;
+                border: 0;
+            }
+        }
+        .advance_block{
+            border-radius: 6px;
+            border: 1px solid #555;
+            background: #FFF;
+            display: none;
+            overflow: hidden;
+            margin-bottom: 2em;
+            .Date{
+                input{
+                    display: inline-block;
+                    width: 48%;
+                    &:first-child{
+                        margin-right: 1%;
+                    }
+                }
+            }
+        }
+        // @include screen('mobile') {
+        @media screen and (max-width: 1080px) {
+            padding-top: 5em;
+            >.container{
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .advance_search{
+                position: static;
+                margin: 10px 0;
+            }
+        }
+    }
+}
+
+
+

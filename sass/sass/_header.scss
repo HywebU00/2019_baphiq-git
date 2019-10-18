@@ -1,0 +1,403 @@
+//header
+.header {
+    position: relative;
+    z-index: 99;
+    // background: #FFF;
+    // @include box-shadow(0px 2px 5px RGBA(0, 0, 0, .3)); 
+    background: -moz-linear-gradient(top, rgba(86,125,149,0.3) 0%, rgba(86,125,149,0.3) 1%, rgba(86,125,149,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(86,125,149,0.3) 0%,rgba(86,125,149,0.3) 1%,rgba(86,125,149,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(86,125,149,0.3) 0%,rgba(86,125,149,0.3) 1%,rgba(86,125,149,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4d567d95', endColorstr='#00567d95',GradientType=0 ); /* IE6-9 */
+    // @include screen('mobile') {
+    @media screen and (max-width: 1080px) {
+        @include clearfix;
+        position: fixed;
+        width: 100%;
+        background: rgba(44, 87, 123, .5);
+    }
+    // 虛擬底色 - navigation
+    // &:before {
+    //     content: "";
+    //     width: 100%;
+    //     height: 2.4em;
+    //     background: #F2F2F2;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     @include screen('mobile') {
+    //         display: none;
+    //     }
+    // } 
+    // mobile btn for extend
+    %mobileCtrlBtn {
+        width: 60px !important;
+        height: 60px !important;
+        position: absolute;
+        top: 0px;
+        display: block;
+        font-size: 0em;
+        padding: 15px;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+        background: transparent;
+        border: none;
+        @include box-sizing;
+        // @include screen('mobile') {
+        @media screen and (max-width: 1080px) {
+            display: block !important;
+        }
+    }
+    >.container {
+        max-width: $container-max;
+        overflow: visible;
+        position: relative; // menu
+        @include gutter();
+        .sidebarCtrl {
+            display: none;
+            left: 0px;
+            @extend %mobileCtrlBtn;
+            span {
+                position: absolute;
+                background: #fff;
+                width: 50%;
+                height: 4px;
+                top:35%;
+                left:50%;
+                margin-left: -25%;
+                display: block;
+                &:nth-child(2){
+                     top:50%;
+                } 
+                &:nth-child(3){
+                     top:65%;
+                }
+            }
+        } // search
+        .searchCtrl {
+            display: none;
+            right: 0px;
+            font-size: 0em;
+            @extend %mobileCtrlBtn;
+            &:before {
+                width: 40px;
+                height: 40px;
+                background: url(../images/basic/icon_search_mobile.png) no-repeat center center;
+                background-size: 32px;
+                opacity: .6;
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                display: block;
+            }
+        }
+    }
+    h1 {
+        // float: left;
+        position: absolute;
+        top: 25px;
+        left: 30px;
+        width: 370px;
+        height: 50px;
+        margin: 0;
+        padding: 0;
+        @include box-sizing;
+        a { display: inline-block; }
+        img {
+            display: block;
+            max-width: 370px;
+            max-height: 50px;
+        }
+        @media screen and (max-width: 1100px) {
+            // position: static;
+            // float: left;
+        }
+        // @include screen('mobile') {
+        @media screen and (max-width: 1080px) {
+            position: static;
+            padding: 2px 60px;
+            @include box-sizing;
+            width: 100%;
+            text-align: center;
+            line-height: 60px;
+            height: 60px;
+            display: table;
+            a{
+                display: table-cell;
+                vertical-align: middle;
+            }
+            img {
+                width: 100%;
+                // height: auto; 
+                max-height: 50px;
+                margin: 0px auto;
+                min-width: 170px;
+                max-width: 300px;
+                // transform: scale(.8);
+            }
+        }
+    } // 導覽列
+    .navigation {
+        @include clearfix;
+        overflow: hidden;
+        width: 100%;
+        // margin-bottom: .5em;
+        ul {
+            float: right;
+            padding: 0;
+            margin: 0;
+            font-size: .938em;
+            list-style: none;
+            margin-right: 250px;
+            &.left_nav {
+                float: left;
+                margin-left: 2em;
+            }
+        }
+        li {
+            float: left;
+            margin: 0 .2em;
+            a {
+                display: inline-block;
+                padding: .75em .5em;
+                text-decoration: none;
+                // @include aSetting_nocolor;
+                color: #fff;
+                &:hover, &:focus{
+                    background: rgba(0,0,0,.35);
+                }
+            }
+        }
+    } 
+}
+//search
+.search {
+    // min-width: 25%;
+    // max-width: 50%;
+    // float: right;
+    vertical-align: middle;
+    padding: 0em .3em 0em;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    @include box-sizing;
+    label {
+        font-size: 0em;
+    }
+    .form_grp {
+        margin-bottom: 0;
+        margin-right: 0 !important;
+        input {
+            margin: -0.2em 0 0;
+            padding: .2em 35px .2em .5em;
+            box-shadow:none;
+            &[type="submit"]{
+                font-size:0em;
+                width:30px !important;
+                height: 30px;
+                // max-width:none;
+                // min-width:none;
+                background:url(../images/basic/icon_search.png) no-repeat center center;
+                background-size:20px;
+                border:none;
+                display:inline-block;
+                margin-left: -40px !important;
+                margin-top:-2px !important;
+                opacity:.8;
+                position: absolute;
+                &:hover,&:focus {
+                    opacity:1;
+                    box-shadow:none;
+                }
+            }
+        }
+    }
+    .btn_grp {
+        padding: .2em;
+        margin-bottom: 0;
+        input,input[type="submit"]{
+            margin: 0;
+            padding: .4em 1em .4em !important;
+            font-size:.813em;
+        }
+    }
+    .keywordHot {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: .5em;
+        padding: .1em 0 .3em;
+        ul {
+            display: inline-block;
+            font-size: .813em;
+            line-height: 1.65em;
+            margin: 0;
+            padding: 0;
+            &:before {
+                display: inline-block;
+                content: "";
+                color: #999;
+                float: left;
+            }
+            li {
+                margin: 0 .6em 0 0;
+                padding: 0;
+                display: inline-block;
+            }
+            a {
+               @include aSetting_nocolor;
+            }
+        }
+    } // m_search
+    &.m_search {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto;
+        padding: .2em .3em .5em;
+        display: block;
+        // height: auto;
+        height: 100px;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        z-index: 99;
+        background: #333;
+        label {
+            font-size: 0em;
+            line-height: 0;
+        }
+        .form_grp {
+            width: 65%;
+            height:auto;
+            padding: 0 0 0 5% !important;
+            margin-top: 28px;  //修正工程師套版跑
+            text-align: right;
+            float:left;
+            height:50px;
+            position:relative;
+            @include box-sizing();
+            input {
+                width: 100%;
+                margin: -0.2em 0 0;
+                padding: .5em 45px .4em .5em;
+                &[type="submit"]{
+                    font-size:0em;
+                    width:36px !important;
+                    height: 36px;
+                    padding: 0;
+                    // max-width:none;
+                    // min-width:none;
+                    background:url(../images/basic/icon_search.png) no-repeat center center;
+                    background-size:24px;
+                    border:none;
+                    display:inline-block;
+                    // margin-left: -50px !important;
+                    position:absolute;
+                    right:5px;
+                    top: 2px;  //修正工程師套版跑
+                    opacity:.8;
+                    // outline:1px solid red;
+
+                    &:hover,&:focus {
+                        opacity:1;
+                    }
+                }
+            }
+        }
+        .btn_grp {
+            display:inline-block;
+            padding: .2em;
+            margin-bottom: 0;
+            width: 20%;
+            margin-top:20px;
+            padding-left: 5%;
+            @include box-sizing();
+            input {
+                width:80% !important;
+                padding: .6em 1em .7em !important;
+                margin: 0;
+
+            }
+        }
+        .keywordHot {
+            padding-left: 5%;
+            margin-top:10px;
+            @include clearfix;
+            a {
+                color: #FFF;
+                &:hover,
+                &:focus {
+                    color: $primaryColor;
+                }
+            }
+        }
+    }
+}
+// header fix
+.header.fixed {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    top: 0;
+    box-shadow: rgba(0, 0, 0, .5) 0 0 25px;
+    background: rgba(7, 46, 78, 0.75);
+    // background: rgba(8, 84, 4, 0.75);
+    z-index: 999;
+    // @include screen('mobile') {
+    @media screen and (max-width: 1080px) {
+        background:#FFF;
+    }
+    h1{
+        opacity: 0;
+    }
+    .menu{
+        >ul{
+            >li{
+                >a{
+                    color:#FFF;
+                }
+            }
+        }
+    }
+}
+
+// 內頁共同設定 ----------------------------------
+#Page {
+    .header {
+        >.container {
+            @include gutter(0);
+            h1{
+                margin-bottom: 20px;
+                margin-left: 20px;    
+            }
+        }
+        .navigation {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+    .search{
+        top: 30px;
+        form.form_inline input[type="text"]{
+            width: 230px;
+        }
+    }
+    // @include screen('mobile') {
+    @media screen and (max-width: 1080px) {
+        .header {
+            >.container {
+                h1{
+                    margin-bottom: 0;
+                    margin-left: 0;    
+                }
+            }
+            .navigation {}
+        }
+    }
+
+    @media screen and (max-width: 1080px) {
+        .navigation {
+            margin-bottom: 0 !important;
+        }
+    }
+}

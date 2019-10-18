@@ -1,0 +1,68 @@
+ /* sitemap */
+ .sitemap {
+     margin: 0px auto 1em;
+     color: #666;
+     @include border-radius(8px);
+     @include clearfix;
+     .accesskeyDefine {
+         padding: 1em 2em;
+           background: #EEE;
+         @include border-radius(6px);
+     }
+ }
+ .cascading {
+     margin: 0;
+     padding: 0;
+     border-top: 1px solid #CCC;
+     @include box-sizing;
+     li {
+         margin: 0 1% 1em;
+         line-height: 1.5em;
+         font-size: 1em;
+         list-style: none;
+         width: 22%;
+         display: inline-block;
+         vertical-align: top;
+         a {
+             margin: 10px 0px;
+             color: #333;
+             padding: .5em;
+             display: block;
+             font-size: 1.25em;
+             font-weight: bold;
+             border-bottom: 2px solid $primaryColor;
+             &:hover,
+             &:focus {
+                 color: $primaryColor !important;
+                 text-decoration: none;
+             }
+         }
+         ul {
+             margin-left: 0px;
+             padding-left: 0%;
+             li {
+                 width: 100%;
+                 display: block !important;
+                 margin-bottom: 0;
+                 a {
+                     margin-top: 0px;
+                     margin-bottom: 0px;
+                     display: block;
+                     font-size: 1em;
+                     border-bottom: 1px dotted #ccc;
+                     background-color: transparent;
+                     font-weight: normal;
+                     color: #666;
+                     font-weight: normal;
+                 }
+             }
+         }
+     }
+     @include screen('mobile') {
+         width: 95%;
+         margin: 0px auto;
+         li {
+             width: 100%;
+         }
+     }
+ }

@@ -1,0 +1,75 @@
+/*pagination*/
+
+.pagination {
+    margin: 10px auto 5px;
+    padding: 0px;
+    display: block;
+    text-align: center;
+    clear: both;
+    font-size: .938em;
+    @include clearfix(); // outline: 1px solid red;
+    span{
+        color:$primaryColor;
+        margin:0px .5em;
+    }
+    .page {
+        margin: 10px 0;
+        padding: 0;
+        li {
+            display: inline-block;
+            min-width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+            list-style: none;
+            @include box-sizing(border-box);
+            a {
+                border-radius: 5px;
+                padding: 6px 10px;
+                font-weight: 800;
+                display: block;
+                white-space: nowrap;
+                font-size: 1em;
+                color: $color-word;
+                background-color: rgb(247, 247, 247); // Old browsers
+                @include filter-gradient(#f7f7f7, #eaeaea, vertical); // IE6-9
+                @include background-image(linear-gradient(top, rgba(247, 247, 247, 1) 0%, rgba(234, 234, 234, 1) 100%));
+                border: #ccc solid 1px;
+                &:hover,
+                &:focus {
+                    background: $primaryColor;
+                    color: #fff!important;
+                    border: $primaryColor solid 1px;
+                }
+            }
+            &.active {
+                a {
+                    color: #fff!important;
+                    background: $primaryColor;
+                    border: $primaryColor solid 1px;
+                }
+            }
+            &.first,
+            &.prev,
+            &.next,
+            &.last {
+              
+            }
+        }
+    }
+}
+
+.pagination .total {
+    padding: 5px;
+    select{
+        margin:0px .5em;
+                @include screen('mobile') {
+                    margin:0px;
+                }
+    }
+}
+@media (max-width: 767px) {
+    .pagination .total select.form-control {
+        margin: 0px 0px;
+        text-align: center;
+    }
+}

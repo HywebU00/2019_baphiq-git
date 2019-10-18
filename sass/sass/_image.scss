@@ -1,0 +1,145 @@
+img {
+    &.img_rounded {
+        //導角，可自訂
+        @include border-radius($rounded-angle);
+    }
+    &.img_circle {
+        //圓形
+        @include border-radius(50%);
+    }
+}
+
+
+
+.single_setting {
+    .thumbnail {
+        @include make_img_col(3, 1);
+        text-align: center;
+    }
+    .thumbnail:nth-child(1) .imgOuter {
+        @include aspect-ratio(1, 1);
+    }
+    .thumbnail:nth-child(2) .imgOuter {
+        @include aspect-ratio(4, 3);
+    }
+    .thumbnail:nth-child(3) .imgOuter {
+        @include aspect-ratio(16, 9);
+    }
+}
+
+
+
+// 圖片比例 -------------------------------------------------- Strat
+.imgOuter1-1{
+    @include aspect-ratio(1,1);               //設定比例 1:1
+    img{ width: 100%; height: 100%; }
+}
+.imgOuter4-3{ @include aspect-ratio(3,4); }   //設定比例 3:4
+
+.imgOuter4-1{ @include aspect-ratio(4,1); }   //設定比例 4:1
+.imgOuter4-3{ @include aspect-ratio(4,3); }   //設定比例 4:3
+.imgOuter7-3{
+    @include aspect-ratio(7,3);               //設定比例 1:1
+    img{ width: 100%; height: 100%; }
+}
+.imgOuter16-9{ @include aspect-ratio(16,9); } //設定比例 16:9
+
+// 圖片比例 -------------------------------------------------- End
+
+// 設定img 在IE9+ SAFARI FIREFOX CHROME 可以object-fit
+
+/*for IE */
+
+.img-container {
+    height: 400px;
+    width: 100%;
+    position: relative; // @include aspect-ratio(10, 3);
+    @include screen('mobile') {
+        height: 280px;
+        width: 100%;
+    }
+    a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        .caption {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 3em;
+            background: rgba(0, 0, 0, .45);
+            padding: 1em .5em .5em;
+            font-size: 1.125em;
+            color: #FFF;
+            margin: 0;
+            text-align: center; // left:35px;
+            bottom: 0;
+            @include text-overflow;
+            @include box-sizing;
+            @include screen('mobile') {
+                // height: 5em;
+                width: 100%;
+                left: 0;
+                padding: 1em 1em;
+                text-align: center;
+            }
+        }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+%ie_setting {
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    img {
+        opacity: 0;
+        width: 0px;
+        height: 0px;
+    }
+}
+.ie-object-cover {
+    @extend %ie_setting;
+    background-size: cover;
+}
+
+.ie-object-fill {
+    @extend %ie_setting;
+    background-size: auto;
+}
+
+.ie-object-contain {
+    @extend %ie_setting;
+    background-size: contain;
+}
+
+.fill {
+    object-fit: fill;
+}
+
+.contain {
+    object-fit: contain;
+}
+
+.cover {
+    object-fit: cover;
+}
+
+.none {
+    object-fit: none;
+}
+
+.scale-down {
+    object-fit: scale-down;
+}

@@ -1,0 +1,16 @@
+$fatFooterliMargin: 0%; // 欄左右的留白，盡量少，fatfooter字過多
+@mixin make-fatfooter($fatFooterliLength, $fatFooterMaxWidth) {
+    nav {
+        max-width: $fatFooterMaxWidth;
+        >ul>li {
+            $fatFooterliMargin: 0%;
+            $fatFooterWidth: 100%;
+            @include box-sizing(border-box);
+            width: floor($fatFooterWidth / $fatFooterliLength);
+            @include screen("mobile") {
+                width: 95%;
+                margin: 0px auto 3px;
+            }
+        }
+    }
+}

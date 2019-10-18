@@ -1,0 +1,146 @@
+.lp {
+    table {
+        td {
+            text-align: left;
+            a {
+                @include aSetting_nocolor;
+            }
+            &.date {
+                text-align: center;
+                color: #666;
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+            &.num {
+                text-align: center;
+                color: #666;
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .list {
+        ul,
+        ol {
+            list-style-type: none;
+            padding: 0;
+            border-top: 2px solid $primaryColor;
+            li {
+                padding: 1em 0;
+                border-bottom: 1px solid #DDD;
+                position: relative; // outline: 1px solid blue;
+                a {
+                    display: block;
+                    padding-left: 2.5em;
+                    position: relative;
+                    line-height: 1.45em;
+                    // font-weight: bold;
+                    &:hover {
+                        color: $aHover;
+                    }
+                    .num {
+                        // width: 1.5em;
+                        text-align: right;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        color: #555;
+                        &:after {
+                            content: ".";
+                            display: inline-block;
+                        }
+                    }
+                }
+                span.dept {
+                    display: inline-block;
+                    font-size: .938em;
+                    color: #232323;
+                }
+                time {
+                    display: inline-block;
+                    margin-left: 10px;
+                    color: #AAA;
+                    font-size: .938em;
+                }
+                @include screen("mobile") {
+                    span.dept { display: block; }
+                    time { margin-left: 0; }
+
+                }
+            }
+        }
+    }
+    .album {
+        margin: 1em auto;
+        overflow: hidden;
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li {
+                @include make-xs-column(12);
+                @include make-sm-column(6);
+                @include make-md-column(4);
+                @include make-lg-column(3);
+                @include gutter();
+                a {
+                    display: block;
+                    text-align: center;
+                    width: 90%;
+                    margin: 2% 5%;
+                    min-height: 320px;
+                    border: 1px solid #DDD;
+                    @include border-radius(4px);
+                    padding: 5px;
+                    @include aSetting_nocolor;
+                    @include screen('notebook') {
+                        min-height: 260px;
+                    }
+                    @include screen('tablet') {
+                        min-height: auto;
+                    }
+                    time {
+                        color: #666;
+                    }
+                    &:hover {
+                        .imgOuter {
+                            img {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                }
+                .imgOuter {
+                    width: 100%;
+                    @include aspect-ratio(4, 3);
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: .3s ease-out;
+                    }
+                }
+                .caption {
+                    text-align: left;
+                    width: 94%;
+                    margin-left: 3%;
+                    h3 {
+                        height: 3em;
+                        overflow: hidden;
+                        line-height: 1.5em;
+                        display:block;
+                        margin:5px 0;
+                    }
+                    time {
+                        color: #666;
+                        font-size: .938em;
+                        display:block;
+                        margin: 15px 0 5px;
+                    }
+                }
+            }
+        }
+    }
+}

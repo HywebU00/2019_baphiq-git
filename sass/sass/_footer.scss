@@ -1,0 +1,92 @@
+footer {
+    @include box-sizing(border-box);
+    @include clearfix;
+    text-align: left;
+    font-size: 0.813em;
+    padding:1em 0;
+    background: $primaryColor;
+    color: #fff;
+    .container{
+        @include gutter();
+        >div{
+            padding-bottom: 1em;
+        }
+    }
+    a {
+        text-decoration: none;
+        color: $primaryColor;
+        &:hover,
+        &:focus {
+            color: darken($primaryColor, 10);
+        }
+    }
+    // .footer_logo {
+    //     @include make-xs-column(8);
+    //     @include make-sm-column(3);
+    //     @include make-md-column(3);
+    //     @include make-lg-column(3);
+    //     @include gutter();
+    // }
+    .footer_info {
+        @include make-xs-column(12);
+        @include make-sm-column(9);
+        @include make-md-column(9);
+        @include make-lg-column(9);
+        @include gutter();
+        text-align: center;
+    }
+    .footer_icon {
+        @include make-xs-column(12);
+        @include make-sm-column(3);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+        @include gutter();
+        text-align: right;
+        @include screen('mobile') {
+            text-align: center;
+        }
+    }
+    // 版權連結
+    .footer_link {
+        @include li-reset();
+        @include clearfix();
+        li {
+            // float: left;
+            display: inline-block;
+            // margin: 0px 5px 5px 0px;
+            a {
+                display: block;
+                padding: .5em 1em;
+                background: $primaryColor;
+                color: #FFF;
+                @include border-radius(3px);
+                @include transition(all, .3s, ease-out);
+                &:hover,
+                &:focus {
+                    background: darken($primaryColor, 10);
+                }
+            }
+        }
+    }
+    p { line-height: 1.65em; }
+    .footer_link+p{ color: rgba(255, 255, 255, 0.8); }
+    .update,
+    .counter {
+        display: block;
+        // margin-right: 5px;
+        em {
+            font-style: normal;
+            color: #fff;
+            padding: 0 .5em;
+        }
+    }
+    .footer_icon {
+        a {
+            display: inline-block;
+            vertical-align: top;
+        }
+        img {
+            max-width: 120px;
+        }
+    }
+}

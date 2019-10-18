@@ -1,0 +1,853 @@
+/////////////////////////////////////////////////////////以下為demo範例///
+#MP{
+    .main .section {
+        .container {
+            max-width: 1100px;
+        }
+    }
+}
+
+h2.Title{
+    line-height: 1.4;
+}
+
+// 首頁區塊設定
+.section {
+    // text-align: center;
+    .container {
+        background: #fff;
+        padding: 1em 2em;
+        @include box-sizing();
+        @include screen('xs_mobile') {
+            padding: .5em 1em;
+        }
+    }
+    [class^="col"] {
+        // border: 1px solid #555;
+        @include box-sizing();
+    }
+}
+
+// 背景輪播
+.Bg-visual{
+    position: relative;
+    height: 745px;
+    // 各種登入
+    .Login{
+        position: absolute;
+        z-index: 98;
+        width: 100%;
+        height: 100%;
+        left:0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align: center;
+        .Inner{
+            // width: 835px;
+            height: 535px;
+            // background: #000;
+            color: #fff;
+            display: block;
+            margin: 120px auto 0;
+            transition: margin 1s ease;
+            .Box{
+                border: solid 5px #fff;
+                border-left: none;
+                // background: url('../basic/login-border-left.png') left top no-repeat;
+                width: 350px;
+                margin: 0 auto;
+                padding: 8px 16px 8px 21px;
+                position: relative;
+                @include box-sizing;
+                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+1,0.65+100 */
+                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+                background: url('../images/basic/login-border-left.png') left top no-repeat, linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+                // 空拍機本人
+                &:before{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    z-index: -1;
+                    left: -130%;
+                    width: 826px;
+                    height: 300px;
+                    background: url('../images/basic/machine.png') 50% 50% no-repeat;
+                    animation: Maichine 3s ease infinite;
+                }
+                // ----------------Maichine---------------------
+                @-webkit-keyframes Maichine {
+                    0% { top: 0; }
+                    50% { top: 30px; }
+                    100% { top: 0; }
+                }
+                @-moz-keyframes Maichine {
+                    0% { top: 0; }
+                    50% { top: 30px; }
+                    100% { top: 0; }
+                }
+                @-ms-keyframes Maichine {
+                    0% { top: 0; }
+                    50% { top: 30px; }
+                    100% { top: 0; }
+                }
+                @-o-keyframes Maichine {
+                    0% { top: 0; }
+                    50% { top: 30px; }
+                    100% { top: 0; }
+                }
+                @keyframes Maichine {
+                    0% { top: 0; }
+                    50% { top: 30px; }
+                    100% { top: 0; }
+                }
+                // ---------------------------------------------
+                h2{
+                    line-height: 1.3;
+                    text-shadow: 0px 0px 10px rgba(0, 46, 84, .9);
+                    margin-bottom: 0;
+                }
+                h3{
+                    border-bottom: solid 1px #fff;
+                    padding: 10px 0;
+                    margin-top: 10px;
+                    text-shadow: 0px 0px 8px rgba(0,46,84,1);
+                    font-weight: normal;
+                }
+                .btn_grp{
+                    padding: .5em 0;
+                    margin-right: 0;
+                }
+                img.captcha{
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                }
+                a.reload{
+                    display: inline-block;
+                    padding: .25em .75em;
+                    color: #222;
+                    font-size: .9em;
+                    border-radius: 4px;
+                    background: rgba(255, 235, 0,1);
+                    &:hover, &:focus{
+                        background: #fcc211 !important;
+                    }
+                }
+                form input[type="submit"]{
+                    width: 100%;
+                    // float: left;
+                    margin: 0;
+                    margin-bottom: 5px;
+                    background: $primaryColor;
+                    border: solid 1px transparent;
+                    // &:nth-child(2){
+                    //     float: right;
+                    // }
+                    // &:nth-child(1), &:nth-child(2){
+                    //     background: lighten($primaryColor, 10);
+                    // }
+                    // &:last-child{
+                    //     width: 100%;
+                    // }
+                    &:hover, &:focus{
+                        background: darken($primaryColor, 5) !important;
+                    }
+                }
+                .half{
+                    width: 49% !important;
+                }
+                .forget{
+                    float: left;
+                    background: lighten($primaryColor, 10) !important;
+                }
+                .login, .logout{
+                    float: right;
+                    background: lighten($primaryColor, 10) !important;
+                }
+                // .forget, .login, .logout{
+                //     &:hover, &:focus{
+                //         background: darken($primaryColor, 10) !important;
+                //     }
+                // }
+
+                label{
+                    width: 90px;
+                    +input{
+                        width: 160px;
+                    }
+                }
+            }
+        }
+    }
+    // 背景輪播
+    #Carousel{
+        position: absolute;
+        z-index: 97;
+        left:0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align: center;
+        .Fotos{
+            // position: relative;
+            // width: 100%;
+            // height: 745px;
+            // overflow: hidden;
+            ul{
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                // ------------------
+                position: relative;
+                width: 100%;
+                height: 745px;
+                overflow: hidden;
+                li{
+                    position: absolute;
+                    left: 50%;
+                    // right: 0;
+                    // top: 0;
+                    // bottom: 0;
+                    margin-left: -960px;
+                    img{
+                        // width: 1200px;
+                        // position: absolute;
+                        // left: 50%;
+                        // right: 0;
+                        // top: 0;
+                        // bottom: 0;
+                        // margin-left: -600px;
+                    }
+                }
+            }
+        }
+    }
+    // 代噴業者操作農用無人機,塞到.Bg-visual內
+    .Special{
+        .col-5{
+            position: absolute;
+            z-index: 97;
+            left:0;
+            right: 0;
+            bottom: -240px;
+            transition: bottom 1s ease;
+            .container{
+                max-width: 1100px;
+            }
+            h2+div{
+                .col{
+                    width: 20%;
+                    display: block;
+                    float: left;
+                    border-right: dotted 1px #ddd;
+                    @include clearfix;
+                    a{
+                        display: block;
+                        text-align: center;
+                        color: #555;
+                        font-size: .9em;
+                        font-weight: bold;
+                        img{ width: 100%; }
+                        span{
+                            display: block;
+                            line-height: 1.4;
+                        }
+                        &:after{
+                            content:'';
+                            display: block;
+                            margin: 0 auto 0 45%;
+                            width: 25px;
+                            height: 6px;
+                            background: url('../images/basic/icon_arrow-right.png') 50% 50% no-repeat;
+                            background-size: contain;
+                            padding: 1em 0 .75em;
+                            transition: margin 600ms ease;
+                        }
+                        &:focus, &:hover{
+                            background: rgba(#ddd, .25);
+                            outline: solid 1px $primaryColor;
+                            &:after{
+                                margin: 0 auto 0 55%;
+                            }
+                        }
+                    }
+                    &:last-child{
+                        border-right: dotted 1px transparent;
+                    }
+                }
+            }
+        }
+        @include screen('tablet') {
+            .col-5{
+                h2+div{
+                    .col{
+                        width: 33.333%;
+                        margin-bottom: 10px;
+                        &:nth-child(3n){
+                            border-right: dotted 1px transparent;
+                        }
+                        &:last-child{
+                            border-right: dotted 1px #ddd;
+                        }
+                    }
+                }
+            }
+        }
+        @include screen('xs_mobile') {
+            .col-5{
+                h2+div{
+                    .col{
+                        width: 50%;
+                        &:nth-child(2n){ border-right: dotted 1px transparent; }
+                        &:nth-child(3n),
+                        &:last-child{ border-right: dotted 1px #ddd; }
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and ( min-width: 992px ) and ( max-width: 1100px) {
+        .Login{
+            .Inner{ margin: 125px auto 0; }
+        }
+        .Special{
+            .col-5{
+                bottom: -280px;
+            }
+        }
+    }
+    @include screen('tablet') {
+        // .Login{
+        //     .Inner{ margin: 110px auto 0; }
+        // }
+        .Special{
+            .col-5{
+                bottom: 0;
+                top: 720px;
+            }
+        }
+    }
+    @include screen('mobile') {
+        // .Login{
+        //     .Inner{ margin: 110px auto 0; }
+        // }
+    }
+    @include screen('xs_mobile') {
+        .Login{
+            .Inner{
+                .Box{
+                    width: 95%;
+                    &:before{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 雙色標題
+.Title{
+    span{
+        color: $primaryColor;
+    }
+}
+// 背景色
+.Bg{
+    background: #3ab851 !important;
+    color: #fff;
+}
+
+// 三欄
+.col-4-4-4 {
+    // padding-top: 240px;
+    transition: padding-top 1s ease;
+    .container{
+        padding: 300px 2em 3em 2em;
+        background: url('../images/basic/bg_col-4-4-4.jpg') left bottom no-repeat, #fff;
+    }
+    .col {
+        // 原本的寫法
+        // @include make-xs-column(12);
+        // @include make-sm-column(12);
+        // @include make-md-column(4);
+        // @include make-lg-column(4);
+        // @include gutter(0);
+        // padding: 0 2px;
+        // margin-bottom: 10px;
+        // a{
+        //     display: block;
+        //     padding: 1px;
+        //     background: #fff;
+        //     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        //     &:after{
+        //         content: '';
+        //         display: block;
+        //         margin: 0 auto 0 145px;
+        //         width: 25px;
+        //         height: 6px;
+        //         background: url(../images/basic/icon_arrow-right.png);
+        //         background-position: center center;
+        //         background-repeat: no-repeat;
+        //         background-size: contain;
+        //         padding: .55em 0;
+        //         transition: margin 600ms ease;
+        //     }
+        //     img{
+        //         float: left;
+        //         margin-right: 10px;
+        //         border: solid 1px #fff;
+        //         @include box-sizing;
+        //     }
+        //     h3{
+        //         color: $primaryColor;
+        //         margin-bottom: 10px;
+        //     }
+        //     p{
+        //         font-size: .9em;
+        //         color: #555;
+        //         margin: 0;
+        //         line-height: 1.2;
+        //     }
+        //     @include clearfix;
+        //     &:hover, &:focus{
+        //         &:after{
+        //             margin: 0 auto 0 160px;
+        //         }
+        //     }
+        // }
+
+        // 配合後台的寫法
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(4);
+        @include make-lg-column(4);
+        @include gutter(0);
+        @include clearfix;
+
+        margin-bottom: 10px;
+        display: block;
+        padding: 10px 5px !important;
+
+        .Inner{
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            @include clearfix;
+            img{
+                float: left;
+                margin-right: 10px;
+                border: solid 1px #fff;
+                @include box-sizing;
+            }
+            h3{
+                color: $primaryColor;
+                margin-bottom: 10px;
+                padding-right: 10px;
+                a{ color: $primaryColor; }
+            }
+            p{
+                font-size: .9em;
+                color: #555;
+                margin: 0;
+                line-height: 1.2;
+                padding-right: 10px;
+                a{ color: #555; }
+                &:after{
+                    content: '';
+                    display: block;
+                    margin: 0 auto 0 145px;
+                    width: 25px;
+                    height: 6px;
+                    background: url(../images/basic/icon_arrow-right.png);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    padding: .55em 0;
+                    transition: margin 600ms ease;
+                }
+                // &:hover, &:focus{
+                //     &:after{ margin: 0 auto 0 160px; }
+                // }
+            }
+            &:hover, &:focus{
+                p{
+                    &:after{ margin: 0 auto 0 160px; }
+                }
+            }
+        }      
+    }
+    @media only screen and ( min-width: 992px ) and ( max-width: 1100px) { padding-top: 30px; }
+    @include screen('tablet') { padding-top: 360px; }
+    @media only screen and ( min-width: 768px ) and ( max-width: 865px) { padding-top: 280px; }
+    @include screen('mobile') {
+        padding-top: 160px;
+        .container{
+            padding: 300px 1em 3em 1em;
+        }
+    }
+    @include screen('xs_mobile') { padding-top: 450px; }
+    @media screen and (max-width: 500px) { padding-top: 400px;}
+    @media screen and (max-width: 414px) { padding-top: 330px; } //iphone6、7、8 plus
+    @media screen and (max-width: 375px) { padding-top: 300px; } //iphone6、7、8、X
+    @media screen and (max-width: 320px) { padding-top: 270px; } //iphone5、se
+    
+}
+
+// 代噴業者黃頁查詢、最新消息、常見問答
+.col-4-8{
+    .Left {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(4);
+        @include make-lg-column(4);
+        @include gutter();
+        @include box-sizing();
+        text-align: center;
+        border-right: dotted 1px #fff;
+        h2{
+            span{
+                background: #3ab851;
+                color: #fff;
+                padding: .25em 1.5em;
+                font-weight: normal;
+            }
+        }
+        @include screen('tablet') {
+            border-right: dotted 1px transparent;
+        }
+    }
+    .Right {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(8);
+        @include make-lg-column(8);
+        @include gutter();
+        @include box-sizing();
+        // h2{ display: none; }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li{
+                a{
+                    display: block;
+                    padding: .25em 0 .25em 1.5em;
+                    color: #555;
+                    background: url('../images/basic/img_col-4-8_liststyle.jpg') left 16px no-repeat;
+                    span.Text{
+                        display: inline-block;
+                        max-width: 410px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        // color: #555;
+                        // transition: color 300ms ease;
+                        &:after{
+                            content:'';
+                            display: block;
+                            width: 0;
+                            height: 2px;
+                            background: $primaryColor;
+                            transition: width 600ms ease;
+                        }
+                    }
+                    span.Date{
+                        float: right;
+                        font-size: .9em;
+                        color: $primaryColor;
+                    }
+                    @include clearfix;
+                    &:hover, &:focus{
+                        span.Text{
+                            color: $primaryColor;
+                            &:after{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include screen('tablet') {
+            ul{
+                li{
+                    a{
+                        span.Text{
+                            max-width: 100%;
+                            overflow: auto;
+                            white-space: normal;
+                        }
+                        span.Date{
+                            float: none;
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        @include screen('mobile') {}
+    }
+    .Line{
+        border-top: solid 2px #fff;
+        border-bottom: solid 2px #fff;
+        padding: 1em 0;
+        @include clearfix;
+        form .btn_grp{
+            margin-bottom: 0;
+            padding: .5em 0;
+        }
+        form input[type="submit"]{
+            margin: 0;
+            margin-bottom: 5px;
+            min-width: 260px;
+            border: solid 1px transparent;
+            background: url(../images/basic/icon_arrow-right.png), #fff;
+            background-position: right 30px center;
+            background-size: 25px 6px;
+            background-repeat: no-repeat;
+            color: $primaryColor;
+            transition: background-position 600ms ease;
+            &:hover, &:focus{
+                color: #fff;
+                background: url(../images/basic/icon_arrow-right_white.png), darken($primaryColor, 5);
+                background-position: right 20px center;
+                background-size: 25px 6px;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+.News, .QA{
+    height: 310px;
+    overflow: hidden;
+    .Left {
+        height: 310px;
+        display: table;
+        border-right: dotted 1px transparent;
+        h2{
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    .Right {
+        background: #f2f2f2;
+        padding: 1.5em 2.5em !important;
+        min-height: 300px;
+        position: relative;
+        h2{
+            display: none;
+        }
+        .More{
+            position: absolute;
+            bottom: 1.125em;
+            right: 2.5em;
+        }
+    }
+    @include screen('tablet') {
+        height: auto;
+        .Left {
+            display: none;
+        }
+        .Right {
+            h2{ display: block; }
+            .More{
+                position: static;
+            }
+        }
+    }
+    @include screen('xs_mobile') {
+        .Right {
+            padding: .75em 1.5em !important;
+        }
+    }
+}
+
+.News{
+    .container{
+        background: url(../images/basic/bg_col-4-8_News.jpg) left top no-repeat, #fff;
+    }
+    .Left{
+        background: url('../images/basic/img_col-4-8_001.jpg') 50% 50% no-repeat;
+    }
+}
+.QA{
+    .Left {
+        background: url('../images/basic/img_col-4-8_002.jpg') 50% 50% no-repeat;
+    }
+    .Right {
+        ul{
+            li{
+                a{
+                    span.Text{
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Form{
+    padding-top: 1.25em;
+    form.form_inline{
+        // @include box-sizing();
+        .form_grp{
+            width: 32%;
+            margin-right: 0;
+            label{ font-size: 0; height: 0; display: block;}
+            select, input{ width: 100%; }
+            @include screen('mobile') { width: 100%; }
+        }
+    }
+}
+
+// 相關連結
+.col-2-10{
+    .container {
+        padding-top: 3em;
+        padding-bottom: 2em;
+    }
+    .Left {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(2);
+        @include make-lg-column(2);
+        @include gutter();
+        @include box-sizing();
+        h2{ margin-top: 0; }
+    }
+    .Right {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(10);
+        @include make-lg-column(10);
+        @include gutter();
+        @include box-sizing();
+    }
+}
+.Links{
+    .Right {
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            @include clearfix;
+            li{
+                width: auto;
+                margin-right: 5px;
+                margin-bottom: 10px;
+                float: left;
+                a{
+                    display: block;
+                    width: 100%;
+                    background: lighten($primaryColor, 10);
+                    color: #fff;
+                    padding: .25em 1em;
+                    @include box-sizing;
+                    &:hover, &:focus{
+                        background: darken($primaryColor, 5);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 廣告輪播
+.adSlider {
+    @include gutter(70px);
+    .slick-prev {
+        background: url(../vendor/slick/icon_arrow_left_inverse.png) no-repeat center center;
+        background-size: 80%;
+        left: -15px;
+    }
+    .slick-next {
+        background: url(../vendor/slick/icon_arrow_right_inverse.png) no-repeat center center;
+        background-size: 80%;
+        right: -15px;
+    }
+    .img-container {
+        width: 165px;
+        height: 55px;
+        margin: 0px 15px;
+        a {
+            display: block;
+            text-align: center;
+            img { margin: 0 auto; }
+        }
+    }
+    @include screen('mobile') {
+        @include gutter();
+        .img-container {
+            height: 60px;
+            a {
+                img { height: auto; }
+            }
+        }
+    }
+    @include screen('xs_mobile') {
+        .img-container {
+            height: 40px;
+            a {
+                img {
+                    max-height: 40px;
+                    width: auto;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// 單欄
+.col-12 {
+    .container {
+        padding: 3em 2em;
+        background: url(../images/basic/bg_col-12.jpg) left top no-repeat, #fff;
+        @include screen('mobile') {
+            padding: 2.5em 2em;
+        }
+    }
+    .col {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(12); //992px  width:100%
+        @include make-lg-column(12); //1400px width:100%
+        @include gutter(); //gutter 代表左右要留白
+    }
+}
+
+// 會員登入
+.col-6 {
+    .container {}
+    .col {
+        @include make-xs-column(12);
+        @include make-sm-column(12);
+        @include make-md-column(6);
+        @include make-lg-column(6);
+        @include gutter(100px);
+        &:first-child{
+            border-right: solid 1px #ddd;
+        }
+    }
+    @include screen('tablet') {
+        .col {
+            @include gutter(0);
+            &:first-child{
+                border-right: solid 1px transparent;
+                border-bottom: solid 1px #ddd;
+                padding-bottom: 1.6em;
+            }
+        }
+    }
+}
+
+
+
+
+
+

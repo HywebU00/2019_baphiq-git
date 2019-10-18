@@ -1,0 +1,228 @@
+@charset "utf-8";
+.cp {
+    img {
+        &.float_left {
+            float: left;
+            margin: 0px 1em 1em 0;
+            width: auto;
+            max-width: 55%;
+            @include screen('mobile') {
+                float: none;
+                max-width: 100%;
+                margin: 0px auto;
+            }
+        }
+        &.float_right {
+            float: right;
+            margin: 0px 0 1em 1em;
+            width: auto;
+            max-width: 55%;
+            @include screen('mobile') {
+                float: none;
+                max-width: 100%;
+                margin: 0px auto;
+            }
+        }
+    }
+    a {
+        @include aSetting;
+    }
+    .Part{
+        @include clearfix;
+        img{}
+        p{ margin: 0 0 .75em; }
+        ol, ul{
+            margin: .75em 0 .75em;
+        }
+    }
+    // .info {
+    //     font-size: 0.938em;
+    //     line-height: 1.5em;
+    //     list-style: none;
+    //     margin: 0 0 1em 0;
+    //     border-left: solid 5px $primaryColor;
+    //     @include box-sizing;
+    //     padding: 0.8em 1.25em 0.8em;
+    //     background: #F2F2F2;
+    //     li {
+    //         width: 49%;
+    //         display: inline-block;
+    //         vertical-align: top;
+    //         &:first-child, &:nth-child(2){
+    //             margin-bottom: .5em;
+    //         }
+    //         @include screen('tablet') {
+    //             width: 48%;
+    //             margin-bottom: .2em;
+    //             font-size: 0.875em;
+    //         }
+    //         @include screen('mobile') {
+    //             width: 100%;
+    //             display: block;
+    //         }
+    //     }
+    // }
+    .CP_info {
+        font-size: 0.938em !important;
+        line-height: 1.5em;
+        list-style: none;
+        margin: 0 0 1em 0;
+        // border-left: solid 5px $primaryColor;
+        @include border-radius(5px);
+        @include box-sizing;
+        // padding: .5em 1em;
+        padding-top: .5em;
+        padding-bottom: .5em;
+        background: #F2F2F2;
+        li {
+            // width: 30%;
+            margin-right: 1.5em;
+            // margin-bottom: .5em;
+            display: inline-block;
+            vertical-align: top;
+            @include screen('tablet') {
+                width: 48%;
+                margin-bottom: .2em;
+                font-size: 0.875em;
+            }
+            @include screen('mobile') {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+}
+
+// 相關照片
+.Multiple_slider{
+    margin-top: 1em;
+    margin-bottom: 2em;
+    .img-container {
+        height: inherit;
+        width: 100%;
+        position: relative;
+        margin: 0px 2px;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        @include screen('mobile') {
+            // height: 280px;
+            width: 100%;
+        }
+    }
+
+    .slick-dots{ bottom: initial; }
+    .slick-dots li.slick-active button:before{ background: #f98385; }
+    .slick-dots li button:before { background: #333; }
+    .slick-prev, .slick-next{ top: 47%; }
+}
+
+// 強調字樣
+.Info_Focus{
+    border: solid 1px $primaryColor;
+    padding: 1em 2em;
+    background: lighten($primaryColor, 70);
+    margin-bottom: 30px;
+    line-height: 2em;
+    img{
+        display: block;
+        margin: 0 auto;
+    }
+    @include border-radius(5px);
+    a{
+        color: #0270b3;
+        text-decoration: underline;
+        margin: 0 5px;
+        &:hover, &:focus, &:active{
+            text-decoration: none;
+        }
+    }
+    b{ color: darken($lightColor, 10) }
+    .Remind{
+        background: #cdefea;
+        padding: 1em 2em;
+        @include border-radius(5px);
+    }
+    .btn_grp a{ text-decoration: none; line-height: 1.45em;}
+    @include screen('mobile') {
+        padding: 1em 1em;
+    }
+}
+
+
+// 文繞圖
+.FotoText{
+    max-width: 30%;
+    a{ text-decoration: none; }
+    img{ width: 100%;}
+    span.caption{
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+        margin-top: 5px;
+        background: #F2F2F2;
+        line-height: 1.4;
+        padding: .5em 1.4em;
+        // @include text-overflow;
+        @include border-radius(5px);
+        @include box-sizing;
+    }
+    @media screen and (max-width: 767px) {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    // .caption{
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 3em;
+    //     background: rgba(0, 0, 0, .45);
+    //     padding: 1em .5em .5em;
+    //     font-size: 1.125em;
+    //     color: #FFF;
+    //     margin: 0;
+    //     text-align: center; // left:35px;
+    //     bottom:0;
+    //     z-index: 3;
+    //     @include text-overflow;
+    //     @include box-sizing;
+    //     @include screen('mobile') {
+    //         height: auto;
+    //         width: 100%;
+    //         left: 0;
+    //         padding: .25em .25em;
+    //         text-align: center;
+    //     }
+    // }
+}
+
+// 圖片置左、置右
+.float_left { float: left; margin: 0px 1em 1em 0; }
+.float_right { float: right; margin: 0px 0 1em 1em; }
+
+// Youtub RWD -------------------------------------------
+.Video{
+    margin-bottom: 50px;
+}
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
+.embed-container iframe,
+.embed-container object, 
+.embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+// Google map RWD
+.Gmap-rwd {
+    position: relative;
+    padding-bottom: 50%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.Gmap-rwd iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

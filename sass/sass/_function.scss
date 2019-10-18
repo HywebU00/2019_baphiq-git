@@ -1,0 +1,112 @@
+$function_color:#888;
+//可自訂顏色，或是自帶既有變數，但請注意背景色與字的對比度
+//範例：$function_color:#000;
+//icon基本設定
+%function_before {
+    vertical-align: middle;
+    content: "";
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: .2em;
+    display: inline-block;
+}
+.function {
+    margin: 0px;
+    overflow: hidden;
+    position: absolute;
+    right: 45px;
+    top: 20px;
+    z-index: 3;
+    @include box-sizing();
+    ul {
+        padding: 2px;
+        margin: 0;
+        @include clearfix;
+        li {
+            list-style: none;
+            display:block;
+            float: left;
+            margin:0 3px 3px 0;
+            button,
+            a {
+                font-size: .813em;
+                display: block;
+                // padding: .2em 1em;
+                background: $function_color;
+                border-color: $function_color;
+                color:#FFF;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+                &:hover, &:focus, &:active {
+                    background: darken($primaryColor, 30);
+                    color: #fff;
+                    // border-color: darken($function_color, 10);
+                    outline: solid 2px #ff6f06;
+                }
+            } // 回上一頁
+            &.icon_back {
+                a:before {
+                    @extend %function_before;
+                    background: url(../images/basic/icon_back.svg) no-repeat center center;
+                    background-size: cover;
+                }
+            } // 友善列印
+            &.icon_print {
+                a:before {
+                    @extend %function_before;
+                    background: url(../images/basic/icon_print.svg) no-repeat center center;
+                    background-size: cover;
+                }
+            } // 轉寄友人
+            &.icon_forward {
+                a:before {
+                    @extend %function_before;
+                    background: url(../images/basic/icon_forward.svg) no-repeat center center;
+                    background-size: cover;
+                }
+            }
+            // facebook
+            &.facebook {
+                a:before {
+                    //
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    margin-right: 0;
+                    display: inline-block;
+                    // @extend %function_before;
+                    background: url(../images/basic/icon_facebook.svg) no-repeat center center;
+                    background-size: cover;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            // line
+            &.line {
+                a:before {
+                    //
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    margin-right: 0;
+                    display: inline-block;
+                    // @extend %function_before;
+                    background: url(../images/basic/icon_line.svg) no-repeat center center;
+                    background-size: cover;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+    @include screen('mobile') {
+        position: static;
+    }
+}
