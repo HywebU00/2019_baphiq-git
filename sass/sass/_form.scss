@@ -569,8 +569,13 @@ input[disabled] {
     margin-bottom: 1em;
     .Pour-Info{
         margin: 0 0 1em;
-        .form_grp{ border-bottom: 0 !important; }
+        display: none;
+        .form_grp{
+            border-bottom: 0 !important;
+            // display: none;
+        }
         .basic_info{
+            // display: none;
             p{
                 background: #666;
                 color: #fff;
@@ -584,6 +589,7 @@ input[disabled] {
 .staff_edite_grp{
     .Pour-Info{
         margin: 0 0 1em;
+        display: none;
         .form_grp{ border-bottom: 0 !important; }
     }
 }

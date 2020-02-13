@@ -91,6 +91,25 @@ $(function() {
 
     });
 
+    // SP 執業範圍  --------------------------------------------
+    // .Pour-Info .staff_edite_grp
+    $('.staff_add_grp > .btn').click(function(event){
+        $(this).next('.Pour-Info').slideToggle(300);
+    });
+
+    // $('.staff_add_grp .Pour-Info .Inquire').click(function(event){
+    //     $('.staff_add_grp').find('.basic_info').slideDown(600);
+    // });
+
+    $('.staff_edite_grp > .staff_edite_btn').click(function(event){
+        // $('.staff_edite_grp').find('.Pour-Info').slideUp(600);
+        $(this).next('.Pour-Info').slideToggle(300);
+
+        // if()else{}
+    });
+
+
+
     // QP 執業範圍  --------------------------------------------
     // 當switch被點選的時候
     $('.switch').click(function(event) {
