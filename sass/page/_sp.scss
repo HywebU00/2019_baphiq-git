@@ -3,7 +3,11 @@
 	.regist{
 		h2{ text-align: center; }
 		b{ color: $importantColor; }
-		p{ height: 100px; }
+		p{ height: 140px; }
+
+		@include screen('mobile') {
+			p{ height: auto; }
+		}
 	}
 
 	// 步驟

@@ -535,13 +535,15 @@ input[disabled] {
 }
 
 .upload_add_grp,
-.upload_delet_grp{
+.upload_delet_grp,
+.staff_edite_grp{
     position: relative;
-    .delet_btn, .add_btn{
+    .delet_btn, .add_btn, .staff_edite_btn{
         position: absolute;
         overflow: hidden;
         top: 1px;
         right: 3px;
+        margin:.25em .1em;
         @extend %btn;
         @include btn_setting(#545454, #FFF);
         // background: #222 !important;
@@ -559,6 +561,30 @@ input[disabled] {
         &:focus {
             @include btn_setting(darken($color-yellow,10), #000);
         }
+    }
+}
+
+// 新增代噴人員
+.staff_add_grp{
+    margin-bottom: 1em;
+    .Pour-Info{
+        margin: 0 0 1em;
+        .form_grp{ border-bottom: 0 !important; }
+        .basic_info{
+            p{
+                background: #666;
+                color: #fff;
+                margin: 0;
+                padding: 1em 1.5em;
+                text-align: center;
+            }
+        }
+    }
+}
+.staff_edite_grp{
+    .Pour-Info{
+        margin: 0 0 1em;
+        .form_grp{ border-bottom: 0 !important; }
     }
 }
 
