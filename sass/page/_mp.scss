@@ -119,6 +119,10 @@ h2.Title{
                 .btn_grp{
                     padding: .5em 0;
                     margin-right: 0;
+                    input{
+                        &:nth-child(2){ margin-top: -3px !important; }
+                        &:last-child{ width: 100% !important; }
+                    }
                 }
                 img.captcha{
                     margin-top: 5px;
@@ -136,21 +140,10 @@ h2.Title{
                     }
                 }
                 form input[type="submit"]{
-                    width: 100%;
-                    // float: left;
                     margin: 0;
                     margin-bottom: 5px;
                     background: $primaryColor;
                     border: solid 1px transparent;
-                    // &:nth-child(2){
-                    //     float: right;
-                    // }
-                    // &:nth-child(1), &:nth-child(2){
-                    //     background: lighten($primaryColor, 10);
-                    // }
-                    // &:last-child{
-                    //     width: 100%;
-                    // }
                     &:hover, &:focus{
                         background: darken($primaryColor, 5) !important;
                     }
