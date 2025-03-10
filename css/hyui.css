@@ -5886,15 +5886,6 @@ h2.Title {
   display: block;
   float: left;
   border-right: dotted 1px #ddd;
-  clear: both;
-  zoom: 1;
-}
-.Bg-visual .Special .col-5 h2 + div .col:before, .Bg-visual .Special .col-5 h2 + div .col:after {
-  content: "";
-  display: table;
-}
-.Bg-visual .Special .col-5 h2 + div .col:after {
-  clear: both;
 }
 .Bg-visual .Special .col-5 h2 + div .col a {
   display: block;
@@ -6017,8 +6008,6 @@ h2.Title {
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;
-  clear: both;
-  zoom: 1;
   margin-bottom: 10px;
   display: block;
   padding: 10px 5px !important;
@@ -6040,13 +6029,6 @@ h2.Title {
     float: left;
     width: 33.3333333333%;
   }
-}
-.col-4-4-4 .col:before, .col-4-4-4 .col:after {
-  content: "";
-  display: table;
-}
-.col-4-4-4 .col:after {
-  clear: both;
 }
 .col-4-4-4 .col .Inner {
   background: #fff;

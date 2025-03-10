@@ -239,7 +239,7 @@ h2.Title{
                     display: block;
                     float: left;
                     border-right: dotted 1px #ddd;
-                    @include clearfix;
+                    // @include clearfix;
                     a{
                         display: block;
                         text-align: center;
@@ -423,7 +423,7 @@ h2.Title{
         @include make-md-column(4);
         @include make-lg-column(4);
         @include gutter(0);
-        @include clearfix;
+        // @include clearfix;
 
         margin-bottom: 10px;
         display: block;
