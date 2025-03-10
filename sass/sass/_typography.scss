@@ -1,107 +1,188 @@
-@import "compass";
-$base-font-size: 16px;
-$base-line-height: 16px;
-$rhythm-unit: 'em';
-$base-font-stack: $font-family;
-// @include establish-baseline();
-$grid-background-baseline-height: 2em;
-$show-baseline-grid-backgrounds: true;
-$grid-background-baseline-color: rgba(187, 187, 187, 0.4);
-.vertical_rhythm {
-    @include baseline-grid-background;
-    img {
-        float: left;
-        margin: 0 $base-font-size 0 0;
-    }
-}
+// from hyui_flex 的 _typography.scss 
 .cp {
-
-    @include adjust-font-size-to($base-font-size*1, 2);
+    font-size: 1em * 1.0666666;
+    line-height: 1.65em;
+    @include screen('xs_mobile') {
+        font-size: 1em * 1.2;
+    }
     h1 {
-        @include adjust-font-size-to($base-font-size*2, 3);
-        @include padding-leader(0);
-        // @include trailer(1.5);
-        @include trailer(1);
+        font-size: 2em;
     }
     h2 {
-        @include adjust-font-size-to($base-font-size*1.5, 2);
-        @include padding-leader(0);
-        // @include trailer(1.35);
-        @include trailer(.5);
+        font-size: 1.75em;
+        margin-bottom: 1.25em;
     }
     h3 {
-        @include adjust-font-size-to($base-font-size*1.25, 2);
-        @include padding-leader(0);
-        @include trailer(0);
+        font-size: 1.5em;
     }
     h4 {
-        @include adjust-font-size-to($base-font-size*1.25, 2);
-        @include padding-leader(0);
-        @include trailer(0);
+        font-size: 1.25em;
+        margin-top: 0;
+        margin-bottom: 1em;
     }
     h5 {
-        @include adjust-font-size-to($base-font-size*1.25, 2);
-        @include leader(0);
-        @include trailer(0);
+        font-size: 1.125em;
+        margin-top: 0;
+        margin-bottom: 1em;
     }
     h6 {
-        @include adjust-font-size-to($base-font-size*1, 2);
-        @include leader(0);
-        @include trailer(0);
+        font-size: 1.125em;
+        margin-top: 0;
+        margin-bottom: 1em;
     }
     p {
-        @include adjust-font-size-to($base-font-size*1, 2);
-        @include leader(0);
-        @include trailer(.75);
+        font-size: 1em;
+        line-height: 1.85em;
+        margin-top: 0;
     }
     ul,
     ol {
-        @include adjust-font-size-to($base-font-size*1, 2);
-        @include leader(0);
-        @include trailer(.75);
+        font-size: 1em;
+        margin-bottom: 1em;
+        li {
+            margin-bottom: 0.5em;
+        }
     }
     dd,
     th,
     td figure {
-        @include adjust-font-size-to($base-font-size);
+        font-size: 1em;
     }
     blockquote {
-        background: #f2f2f2;
+        background: #f1f1f1;
         font-style: normal;
         display: block;
-        @include adjust-font-size-to($base-font-size);
+        font-size: 1em;
         border-left: 5px solid $primaryColor;
-        padding: $base-font-size*2;
+        padding: 2em;
         box-sizing: border-box;
-        margin-left: .5em;
-        margin-right: .5em;
-        @include leader(0);
-        @include trailer(2);
+        margin: 0 0em 2em;
     }
-    ul,
-    ol,
-    article,
-    p,
-    dd,
-    figure {
-        @include adjust-font-size-to($base-font-size, 1.6); // @include trailer(1);
-    }
-    ul{
-        padding-left: 2em;
-        list-style: disc;
-    }
-    ol{
-        padding-left: 2em;
-        list-style:decimal;
-        display: inline-block;
-    }
-
     img {
         max-width: 100%;
-       @include screen('mobile') {
+        @include screen('mobile') {
             max-width: 100%;
             width: auto;
             clear: both;
         }
     }
 }
+@import "compass/_css3";
+// @import "compass/_functions";
+// @import "compass/_layout";
+// @import "compass/_reset-legacy";
+// @import "compass/_reset";
+// @import "compass/_support";
+// @import "compass/_typography";
+// @import "compass/_utilities";
+
+// ---------------------------
+// compass 原本資料 ------------
+// ---------------------------
+// @import "compass";
+// $base-font-size: 16px;
+// $base-line-height: 16px;
+// $rhythm-unit: 'em';
+// $base-font-stack: $font-family;
+// // @include establish-baseline();
+// $grid-background-baseline-height: 2em;
+// $show-baseline-grid-backgrounds: true;
+// $grid-background-baseline-color: rgba(187, 187, 187, 0.4);
+// .vertical_rhythm {
+//     @include baseline-grid-background;
+//     img {
+//         float: left;
+//         margin: 0 $base-font-size 0 0;
+//     }
+// }
+// .cp {
+
+//     @include adjust-font-size-to($base-font-size*1, 2);
+//     h1 {
+//         @include adjust-font-size-to($base-font-size*2, 3);
+//         @include padding-leader(0);
+//         // @include trailer(1.5);
+//         @include trailer(1);
+//     }
+//     h2 {
+//         @include adjust-font-size-to($base-font-size*1.5, 2);
+//         @include padding-leader(0);
+//         // @include trailer(1.35);
+//         @include trailer(.5);
+//     }
+//     h3 {
+//         @include adjust-font-size-to($base-font-size*1.25, 2);
+//         @include padding-leader(0);
+//         @include trailer(0);
+//     }
+//     h4 {
+//         @include adjust-font-size-to($base-font-size*1.25, 2);
+//         @include padding-leader(0);
+//         @include trailer(0);
+//     }
+//     h5 {
+//         @include adjust-font-size-to($base-font-size*1.25, 2);
+//         @include leader(0);
+//         @include trailer(0);
+//     }
+//     h6 {
+//         @include adjust-font-size-to($base-font-size*1, 2);
+//         @include leader(0);
+//         @include trailer(0);
+//     }
+//     p {
+//         @include adjust-font-size-to($base-font-size*1, 2);
+//         @include leader(0);
+//         @include trailer(.75);
+//     }
+//     ul,
+//     ol {
+//         @include adjust-font-size-to($base-font-size*1, 2);
+//         @include leader(0);
+//         @include trailer(.75);
+//     }
+//     dd,
+//     th,
+//     td figure {
+//         @include adjust-font-size-to($base-font-size);
+//     }
+//     blockquote {
+//         background: #f2f2f2;
+//         font-style: normal;
+//         display: block;
+//         @include adjust-font-size-to($base-font-size);
+//         border-left: 5px solid $primaryColor;
+//         padding: $base-font-size*2;
+//         box-sizing: border-box;
+//         margin-left: .5em;
+//         margin-right: .5em;
+//         @include leader(0);
+//         @include trailer(2);
+//     }
+//     ul,
+//     ol,
+//     article,
+//     p,
+//     dd,
+//     figure {
+//         @include adjust-font-size-to($base-font-size, 1.6); // @include trailer(1);
+//     }
+//     ul{
+//         padding-left: 2em;
+//         list-style: disc;
+//     }
+//     ol{
+//         padding-left: 2em;
+//         list-style:decimal;
+//         display: inline-block;
+//     }
+
+//     img {
+//         max-width: 100%;
+//        @include screen('mobile') {
+//             max-width: 100%;
+//             width: auto;
+//             clear: both;
+//         }
+//     }
+// }
