@@ -7241,8 +7241,7 @@ h2.Title {
 
 .Range {
   height: 25px;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
   margin-bottom: 6px;
 }
@@ -7284,6 +7283,9 @@ h2.Title {
 }
 .Range.withTable.Open:before {
   display: none;
+}
+.Range.withTable._center {
+  overflow-x: visible;
 }
 .Range.withTable._center th {
   text-align: center !important;

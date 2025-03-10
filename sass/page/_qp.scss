@@ -57,8 +57,7 @@
 // 內容顯示範圍，預設關起來
 .Range{
 	height: 25px;
-	overflow-x: scroll;
-  overflow-y: hidden;
+	overflow: hidden;
 	position: relative;
 	margin-bottom: 6px;
 	&:after{
@@ -107,6 +106,7 @@
 			&:before{ display: none; }
 		}
 		&._center{
+			overflow-x: visible;
 			th{
 				text-align: center !important;
 			}
