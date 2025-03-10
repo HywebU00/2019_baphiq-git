@@ -2537,7 +2537,7 @@ select::-ms-expand {
 }
 .form_grid .form_content section.Box .inner_Box {
   background: #f1f1f1;
-  padding: 1em 2em 0;
+  padding: 1em 2em;
 }
 .form_grid .form_content section.Box .inner_Box .delet_btn {
   padding: 0.3em 1em !important;
@@ -2583,6 +2583,15 @@ select::-ms-expand {
 }
 .form_grid .form_content section.Box .table_info {
   padding: 0 15px;
+  clear: both;
+  zoom: 1;
+}
+.form_grid .form_content section.Box .table_info:before, .form_grid .form_content section.Box .table_info:after {
+  content: "";
+  display: table;
+}
+.form_grid .form_content section.Box .table_info:after {
+  clear: both;
 }
 .form_grid .form_content section.Box .table_info h4 {
   margin: 0;
@@ -7232,7 +7241,7 @@ h2.Title {
 
 .Range {
   height: 25px;
-  overflow: hidden;
+  overflow-x: scroll;
   position: relative;
   margin-bottom: 6px;
 }
@@ -7255,7 +7264,7 @@ h2.Title {
   opacity: 0;
 }
 .Range.withTable {
-  height: 80px;
+  height: 104px;
   position: relative;
 }
 .Range.withTable:before {
@@ -7274,6 +7283,15 @@ h2.Title {
 }
 .Range.withTable.Open:before {
   display: none;
+}
+.Range.withTable._center th {
+  text-align: center !important;
+}
+.Range.withTable table {
+  margin-bottom: 0 !important;
+}
+.Range.withTable table td._center {
+  text-align: center;
 }
 
 .Open {
@@ -7454,8 +7472,6 @@ h2.Title {
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;
-  clear: both;
-  zoom: 1;
 }
 @media (min-width: 768px) {
   .sp .SP-col-4-4-4 .col {
@@ -7474,13 +7490,6 @@ h2.Title {
     float: left;
     width: 33.3333333333%;
   }
-}
-.sp .SP-col-4-4-4 .col:before, .sp .SP-col-4-4-4 .col:after {
-  content: "";
-  display: table;
-}
-.sp .SP-col-4-4-4 .col:after {
-  clear: both;
 }
 .sp .SP-col-4-4-4 .col .form_grp.form_block {
   padding-top: 0;

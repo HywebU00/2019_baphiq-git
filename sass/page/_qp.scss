@@ -57,7 +57,7 @@
 // 內容顯示範圍，預設關起來
 .Range{
 	height: 25px;
-	overflow: hidden;
+	overflow-x: scroll;
 	position: relative;
 	margin-bottom: 6px;
 	&:after{
@@ -83,7 +83,7 @@
 	}
 
 	&.withTable{
-		height: 80px;
+		height: 104px;
 		position: relative;
 		&:before{
 			content:'';
@@ -104,6 +104,17 @@
 
 		&.Open{
 			&:before{ display: none; }
+		}
+		&._center{
+			th{
+				text-align: center !important;
+			}
+		}
+		table{
+			margin-bottom: 0 !important;
+			td._center{
+				text-align: center;
+			}
 		}
 	}
 

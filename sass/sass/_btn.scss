@@ -18,7 +18,7 @@ $btn-radius:4px;
     &:hover,
     &:focus {
         background: lighten($btn-bg, 5);
-         @include box-shadow(0px 2px 2px RGBA(0,0,0,.15));
+        @include box-shadow(0px 2px 2px RGBA(0,0,0,.15));
         cursor: pointer;
         color: #FFF;
     }

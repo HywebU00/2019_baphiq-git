@@ -114,7 +114,7 @@ select::-ms-expand {
             // 農藥/劑型/含量
             .inner_Box{
                 background: #f1f1f1;
-                padding: 1em 2em 0;
+                padding: 1em 2em;
 
                 .delet_btn{
                     padding: .3em 1em !important;
@@ -132,6 +132,7 @@ select::-ms-expand {
             }
             .table_info{
                 padding: 0 15px;
+                @include clearfix;
                 h4{
                     margin: 0;
                     // line-height: 2;

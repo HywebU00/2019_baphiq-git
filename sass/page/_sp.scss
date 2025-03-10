@@ -142,16 +142,16 @@
 		}
 		.col {
 			@include make-xs-column(12);
-	        @include make-sm-column(12);
-	        @include make-md-column(4);
-	        @include make-lg-column(4);
-	        @include gutter(0);
-	        @include clearfix;
+				@include make-sm-column(12);
+				@include make-md-column(4);
+				@include make-lg-column(4);
+				@include gutter(0);
+				// @include clearfix;
 
-	        .form_grp.form_block{
-	        	padding-top: 0;
-	        	padding-bottom: 0;
-	        }
+				.form_grp.form_block{
+					padding-top: 0;
+					padding-bottom: 0;
+				}
 		}
 	}
 }
