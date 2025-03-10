@@ -58,6 +58,7 @@
 .Range{
 	height: 25px;
 	overflow-x: scroll;
+  overflow-y: hidden;
 	position: relative;
 	margin-bottom: 6px;
 	&:after{
